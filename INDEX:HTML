@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Website</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 50px; background-color: #eef2f3; }
+        .card { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; }
+        p { color: #7f8c8d; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Hello from my new website!</h1>
+        <p>I'm building this on GitHub.</p>
+    </div>
+</body>
+</html>
