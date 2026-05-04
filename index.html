@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kajuoo78 | My Collection</title>
+    <title>Ottoman Water Solutions</title>
     <style>
-        /* This sets the background color to a soft gray */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            padding: 20px; 
-            background-color: #fdf2f2; /* Very light red tint */
-            color: #333;
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
         }
-        /* This is the main "Card" where your content lives */
-        .container { 
-            background: white; 
-            max-width: 600px; 
-            margin: 0 auto; 
-            padding: 40px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-top: 8px solid #b22222; /* A nice "Firebrick" Red top border */
+
+        .hero-bg {
+            /* This line makes the image your background */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("showroom.jpg");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        h1 { color: #b22222; margin-bottom: 10px; }
-        p { color: #555; line-height: 1.6; }
-        
-        /* This is where your images will look nice */
-        .image-placeholder {
-            background-color: #f9f9f9;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
-            margin-top: 20px;
-            color: #999;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            border-top: 10px solid #b22222; /* Red accent */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        h1 { color: #b22222; margin-top: 0; font-size: 2.2rem; text-transform: uppercase; }
+        p { color: #333; font-size: 1.1rem; font-weight: 500; }
+        .btn {
+            background: #b22222;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>OTTOMAN WATER SOLUTIONS! </h1>
-        <p>Suppliers in plumbing and general construction supplies.</p>
-        
-        <div class="image-placeholder">
-            <p>📷 [Images will be displayed here]</p>
-            <p style="font-size: 0.8rem;">(I can help you upload your biology or driving school photos next!)</p>
+    <div class="hero-bg">
+        <div class="content-box">
+            <h1>Ottoman Water Solutions</h1>
+            <p>Suppliers in plumbing and general construction supplies.</p>
+            <a href="mailto:contact@example.com" class="btn">Get a Quote</a>
         </div>
     </div>
 
