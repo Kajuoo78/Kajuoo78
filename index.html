@@ -1,59 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ottoman Water Solutions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    <title>Ottoman Water Solutions | Premium Hardware</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+        :root {
+            --aqua: #00ffff;
+            --jade: #00a86b;
+            --dark: #011f18;
         }
 
-        .hero-bg {
-            /* This line makes the image your background */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("showroom.jpg");
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        /* Section 1: The Hero (Like the top of the video) */
+        .hero {
             height: 100vh;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            /* The Aqua to Jade Blend */
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 168, 107, 0.4)), url("showroom.jpg");
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
 
-        .content-box {
-            background: rgba(255, 255, 255, 0.95);
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0;
+            /* Aqua Wave text color */
+            color: var(--aqua);
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 20px;
+            color: #e0f7fa;
+        }
+
+        /* Section 2: Features (Like the "Customised" boxes in the video) */
+        .features {
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
             padding: 40px;
             border-radius: 15px;
-            text-align: center;
-            max-width: 500px;
-            border-top: 10px solid #b22222; /* Red accent */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-left: 5px solid var(--jade); /* Tropical Jade accent */
+            transition: 0.3s;
         }
 
-        h1 { color: #b22222; margin-top: 0; font-size: 2.2rem; text-transform: uppercase; }
-        p { color: #333; font-size: 1.1rem; font-weight: 500; }
+        .card:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--aqua);
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
         .btn {
-            background: #b22222;
+            background: var(--jade);
             color: white;
-            padding: 12px 25px;
+            padding: 15px 40px;
             text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 15px;
+            border-radius: 50px;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 30px;
+            transition: 0.3s;
+            border: 2px solid var(--jade);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--aqua);
+            border-color: var(--aqua);
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-bg">
-        <div class="content-box">
-            <h1>Ottoman Water Solutions</h1>
-            <p>Suppliers in plumbing and general construction supplies.</p>
-            <a href="mailto:contact@example.com" class="btn">Get a Quote</a>
+    <section class="hero">
+        <h1>Ottoman</h1>
+        <p>Premium Plumbing & Construction Hardware Solutions</p>
+        <a href="#explore" class="btn">Explore Collections</a>
+    </section>
+
+    <section id="explore" class="features">
+        <div class="card">
+            <h3>Customised</h3>
+            <p>Special Finishes for bespoke architectural projects.</p>
         </div>
-    </div>
+        <div class="card">
+            <h3>Handcrafting</h3>
+            <p>Designed, Crafted, and Perfected for luxury homes.</p>
+        </div>
+        <div class="card">
+            <h3>Support</h3>
+            <p>World-class technical support for your construction needs.</p>
+        </div>
+    </section>
 
 </body>
 </html>
