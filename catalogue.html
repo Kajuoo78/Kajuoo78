@@ -1,0 +1,766 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue | Ottoman Water Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              wine: '#68001a',
+              wineDark: '#3e000f',
+              wineLight: '#941031',
+              accent: '#d44964',
+              gold: '#d9a74a',
+              surface: 'rgba(23, 10, 16, 0.72)',
+              surfaceLight: 'rgba(255, 255, 255, 0.05)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0b0709;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glass-card {
+      background: rgba(26, 12, 18, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(244, 63, 94, 0.15);
+      box-shadow: 0 16px 35px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .glass-card-hover {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card-hover:hover {
+      transform: translateY(-5px);
+      border-color: rgba(225, 29, 72, 0.4);
+      box-shadow: 0 20px 40px -10px rgba(148, 16, 49, 0.35);
+    }
+
+    .glass-header {
+      background: rgba(11, 7, 9, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .badge-wine {
+      background: linear-gradient(135deg, rgba(148, 16, 49, 0.3), rgba(62, 0, 15, 0.5));
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      color: #fca5a5;
+    }
+
+    .pill-active {
+      background: linear-gradient(135deg, #941031, #68001a);
+      color: #ffffff;
+      border: 1px solid rgba(244, 114, 182, 0.5);
+      box-shadow: 0 4px 15px rgba(148, 16, 49, 0.4);
+    }
+
+    .glow-accent {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(148, 16, 49, 0.28) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Custom Scrollbar for Drawer & Modal */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f0a0d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #47111c;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7a1529;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative selection:bg-brand-wineLight selection:text-white">
+
+  <!-- Ambient Light Orbs -->
+  <div class="glow-accent top-0 left-[-100px]"></div>
+  <div class="glow-accent top-[40%] right-[-150px]"></div>
+
+  <header class="sticky top-0 z-40 glass-header px-4 lg:px-12 py-3.5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Brand Logo / Title -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-wineDark via-brand-wine to-rose-500 p-0.5 shadow-lg shadow-rose-950/40 group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div class="w-full h-full bg-[#12080c] rounded-[10px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <span class="font-heading font-bold text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-rose-100 to-rose-300 bg-clip-text text-transparent">
+            OTTOMAN
+          </span>
+          <span class="block text-[10px] uppercase tracking-widest text-rose-300/70 font-semibold -mt-1">
+            Water Solutions
+          </span>
+        </div>
+      </a>
+
+      <!-- Quick Action Controls -->
+      <div class="flex items-center space-x-3">
+        <!-- Inquiry Basket Toggle Button -->
+        <button id="cartBtn" onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-rose-500/40 hover:bg-rose-950/30 transition-all text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="hidden sm:inline text-xs font-medium text-gray-200">Inquiry Basket</span>
+          <span id="cartCountBadge" class="bg-gradient-to-r from-rose-600 to-brand-wine text-white text-[11px] font-bold rounded-full h-5 min-w-[20px] px-1.5 flex items-center justify-center border border-rose-400/40">
+            0
+          </span>
+        </button>
+
+        <!-- Direct WhatsApp Hotline -->
+        <a id="navWhatsappBtn" href="https://wa.me/254700000000?text=Hello%20Ottoman%20Water%20Solutions,%20I%20would%20like%20to%20inquire%20about%20your%20fixtures." target="_blank" class="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium bg-emerald-950/50 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-900/60 transition-all">
+          <svg class="w-4 h-4 fill-emerald-400" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          WhatsApp Help
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative z-10 px-4 pt-12 pb-6 max-w-7xl mx-auto text-center md:text-left">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-wine text-xs mb-3 font-medium">
+          <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+          2026 Architectural Range & Plumbing Spares
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight">
+          Product <span class="bg-gradient-to-r from-rose-400 via-rose-300 to-amber-200 bg-clip-text text-transparent">Catalogue</span>
+        </h1>
+        <p class="mt-2 text-sm sm:text-base text-gray-400 max-w-2xl leading-relaxed">
+          High-grade sanitary ware, solid brass valves, precision mixers, and heavy-duty fittings built for long-lasting commercial and residential plumbing installations.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 justify-center md:justify-end text-xs text-gray-300">
+        <div class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span>Genuine Tested Quality</span>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Instant WhatsApp B.O.Q Quotes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sticky top-[69px] z-30 px-4 py-4 glass-header backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none no-scrollbar text-xs font-medium" id="categoryContainer">
+        <button onclick="filterCategory('All')" class="category-pill pill-active whitespace-nowrap px-4 py-2 rounded-xl border border-white/10 transition-all" data-category="All">
+          All Products
+        </button>
+        <button onclick="filterCategory('Bathroom Fixtures')" class="category-pill whitespace-nowrap px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-rose-400/40 text-gray-300 hover:text-white transition-all" data-category="Bathroom Fixtures">
+          Bathroom Fixtures
+        </button>
+        <button onclick="filterCategory('Brassware & Taps')" class="category-pill whitespace-nowrap px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-rose-400/40 text-gray-300 hover:text-white transition-all" data-category="Brassware & Taps">
+          Brassware & Taps
+        </button>
+        <button onclick="filterCategory('Shower Systems')" class="category-pill whitespace-nowrap px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-rose-400/40 text-gray-300 hover:text-white transition-all" data-category="Shower Systems">
+          Shower Systems
+        </button>
+        <button onclick="filterCategory('Vanities & Basins')" class="category-pill whitespace-nowrap px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-rose-400/40 text-gray-300 hover:text-white transition-all" data-category="Vanities & Basins">
+          Vanities & Basins
+        </button>
+        <button onclick="filterCategory('Plumbing & Fittings')" class="category-pill whitespace-nowrap px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-rose-400/40 text-gray-300 hover:text-white transition-all" data-category="Plumbing & Fittings">
+          Plumbing & Fittings
+        </button>
+      </div>
+
+      <!-- Live Search & Sorting Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Search Input -->
+        <div class="relative flex-1 md:w-64">
+          <svg class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearch()"
+            placeholder="Search SKU, name, brass..." 
+            class="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-black/40 border border-white/15 focus:outline-none focus:border-rose-500 text-white placeholder-gray-500 transition-colors"
+          />
+        </div>
+
+        <!-- Sort Select -->
+        <select id="sortSelect" onchange="handleSort()" class="bg-black/50 text-xs text-gray-300 border border-white/15 rounded-xl px-3 py-2 focus:outline-none focus:border-rose-500">
+          <option value="featured">Featured First</option>
+          <option value="name-asc">Name (A - Z)</option>
+          <option value="category">By Category</option>
+        </select>
+      </div>
+
+    </div>
+  </section>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4 py-8">
+    <div class="flex items-center justify-between mb-6">
+      <p id="resultsCount" class="text-xs text-gray-400 font-medium tracking-wide">
+        Showing all available products
+      </p>
+    </div>
+
+    <!-- Product Grid Container -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Cards will be populated by JavaScript -->
+    </div>
+
+    <!-- Empty State Message -->
+    <div id="emptyState" class="hidden text-center py-20 px-4">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-rose-950/40 border border-rose-500/20 flex items-center justify-center text-rose-400">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <h3 class="text-lg font-heading font-semibold text-white">No items found</h3>
+      <p class="text-sm text-gray-400 mt-1 max-w-sm mx-auto">No product matches your search term or category filter. Try clearing your filters or contact us directly.</p>
+      <button onclick="resetFilters()" class="mt-4 px-4 py-2 rounded-xl text-xs font-medium bg-white/10 hover:bg-white/20 text-white border border-white/15 transition-all">
+        Reset All Filters
+      </button>
+    </div>
+  </main>
+
+  <div id="quickViewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="relative w-full max-w-2xl glass-card rounded-2xl overflow-hidden border border-rose-500/30 p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-xl overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center relative min-h-[220px]">
+          <img id="modalImg" src="" alt="Product" class="w-full h-full object-cover max-h-[280px]">
+          <span id="modalBadge" class="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 rounded-full badge-wine"></span>
+        </div>
+
+        <div class="flex flex-col justify-between">
+          <div>
+            <span id="modalCategory" class="text-xs uppercase tracking-wider text-rose-400 font-semibold"></span>
+            <h2 id="modalTitle" class="text-xl font-heading font-bold text-white mt-1"></h2>
+            <p id="modalSKU" class="text-xs text-gray-400 font-mono mt-0.5"></p>
+            <p id="modalDescription" class="text-xs text-gray-300 mt-3 leading-relaxed"></p>
+
+            <div class="mt-4 pt-3 border-t border-white/10 space-y-2 text-xs">
+              <div class="flex justify-between text-gray-400">
+                <span>Material Grade:</span>
+                <span id="modalMaterial" class="text-white font-medium"></span>
+              </div>
+              <div class="flex justify-between text-gray-400">
+                <span>Connection / Size:</span>
+                <span id="modalSize" class="text-white font-medium"></span>
+              </div>
+              <div class="flex justify-between text-gray-400">
+                <span>Pressure Rating:</span>
+                <span id="modalPressure" class="text-white font-medium"></span>
+              </div>
+              <div class="flex justify-between text-gray-400">
+                <span>Warranty:</span>
+                <span id="modalWarranty" class="text-emerald-400 font-medium"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col gap-2.5">
+            <button id="modalAddBasketBtn" class="w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-rose-600/90 hover:bg-rose-500 text-white transition-all flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              Add to Inquiry Basket
+            </button>
+            <a id="modalWhatsAppBtn" href="#" target="_blank" class="w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-emerald-600/90 hover:bg-emerald-500 text-white transition-all flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              Quick Inquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cartDrawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 glass-card border-l border-rose-500/20 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <!-- Drawer Header -->
+    <div class="p-4 border-b border-white/10 flex items-center justify-between bg-black/30">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        <h3 class="font-heading font-bold text-white text-base">Inquiry List (B.O.Q)</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-400 hover:text-white transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-4 border-t border-white/10 bg-black/40 space-y-3">
+      <div class="flex justify-between text-xs text-gray-300">
+        <span>Selected Items:</span>
+        <span id="cartTotalItems" class="font-semibold text-white">0 products</span>
+      </div>
+
+      <button id="sendCartWhatsappBtn" onclick="checkoutViaWhatsApp()" class="w-full py-3 px-4 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40">
+        <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        Send Itemized B.O.Q to WhatsApp
+      </button>
+
+      <button onclick="clearCart()" class="w-full py-2 rounded-xl text-[11px] font-medium text-gray-400 hover:text-rose-400 transition-colors">
+        Clear Basket
+      </button>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 rounded-xl bg-brand-wine border border-rose-400/40 text-white text-xs flex items-center gap-2 shadow-2xl">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg">Item added to inquiry list</span>
+  </div>
+
+  <script>
+    // Primary WhatsApp Business phone number for Ottoman Water Solutions
+    const WHATSAPP_PHONE = '254700000000'; // Replace with the actual business number
+
+    const PRODUCTS = [
+      {
+        id: 'OWS-01',
+        name: 'Pegler Heavy-Duty Brass Bib Tap (1/2")',
+        category: 'Brassware & Taps',
+        badge: 'Solid Brass CW617N',
+        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-BR-501',
+        material: 'High-Purity CW617N Forged Brass',
+        size: '1/2 inch BSP male thread with hose union',
+        pressure: 'PN 16 (Up to 16 Bar Working Pressure)',
+        warranty: '5 Years Manufacturer Guarantee',
+        description: 'Engineered for high durability in rigorous outdoor or utility installations. Includes anti-leak PTFE ball seal and anti-corrosion chrome handle.'
+      },
+      {
+        id: 'OWS-02',
+        name: 'Matte Black Thermostatic Rain Shower System',
+        category: 'Shower Systems',
+        badge: 'Architectural Grade',
+        image: 'https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-SH-108',
+        material: 'SUS304 Stainless Steel & Solid Brass Core',
+        size: '300mm Ultra-Slim Head + Dual Handset',
+        pressure: '1.5 - 5.0 Bar optimal',
+        warranty: '5 Years Warranty',
+        description: 'Precision 38°C thermostatic scald prevention valve with rain shower head, handheld jet, and lower bath spout.'
+      },
+      {
+        id: 'OWS-03',
+        name: 'Concealed Dual Flush Cistern & Actuator Plate',
+        category: 'Bathroom Fixtures',
+        badge: 'Water Saving 3L / 6L',
+        image: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-BF-304',
+        material: 'High Density Polyethylene (HDPE) Tank',
+        size: 'Depth 80mm ultra-slim wall frame',
+        pressure: '0.2 - 10 Bar',
+        warranty: '10 Years Frame Guarantee',
+        description: 'Ultra-quiet fill mechanism with insulated tank against condensation. Fits inside drywall and masonry partitions.'
+      },
+      {
+        id: 'OWS-04',
+        name: 'Floating Nordic Oak Vanity Unit & Ceramic Basin',
+        category: 'Vanities & Basins',
+        badge: 'Moisture-Proof Plywood',
+        image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-VN-802',
+        material: 'Marine Grade Moisture-Resistant Plywood & Glazed Ceramic',
+        size: '800mm (W) x 460mm (D) x 500mm (H)',
+        pressure: 'Standard overflow drainage included',
+        warranty: '3 Years Warranty',
+        description: 'Wall-hung floating double drawer unit with soft-closing Blum runners and anti-scratch vitrified ceramic countertop basin.'
+      },
+      {
+        id: 'OWS-05',
+        name: 'Brushed Brass Tall Monobloc Basin Mixer',
+        category: 'Brassware & Taps',
+        badge: 'PVD Brushed Gold',
+        image: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-TP-205',
+        material: 'Solid Brass with PVD Fingerprint-Resistant Finish',
+        size: '310mm Height with Neoperl Aerator',
+        pressure: '0.5 - 5.0 Bar',
+        warranty: '7 Years Ceramic Cartridge',
+        description: 'Elegant tall faucet designed for vessel and countertop bowls, featuring 35mm ceramic disc cartridges for effortless flow control.'
+      },
+      {
+        id: 'OWS-06',
+        name: 'PPR Hot & Cold Equal Socket / Valve Kit (20mm - 32mm)',
+        category: 'Plumbing & Fittings',
+        badge: 'PN25 Hot Water Rated',
+        image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-FT-710',
+        material: '100% Virgin Polypropylene Random (PPR) + Brass Inserts',
+        size: 'Available in 20mm, 25mm, 32mm, 40mm',
+        pressure: 'PN25 (High Temp up to 95°C)',
+        warranty: '50-Year Design Lifespan',
+        description: 'Zero-leakage heat-fusion plumbing system fittings. Rust-free, mineral scale resistant, non-toxic for drinking water pipelines.'
+      },
+      {
+        id: 'OWS-07',
+        name: 'Wall-Hung Rimless Ceramic Water Closet',
+        category: 'Bathroom Fixtures',
+        badge: 'Tornado Flush Tech',
+        image: 'https://images.unsplash.com/photo-1564540586988-aa4e53c3d799?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-BF-312',
+        material: 'Vitreous China with Nano-Glaze EasyClean',
+        size: '540mm projection x 360mm width',
+        pressure: 'Universal concealed frame compatibility',
+        warranty: '10 Years Ceramic Finish',
+        description: 'Modern rimless toilet pan eliminating hidden dirt traps. Includes ultra-slim UF soft-close seat and stainless steel quick release hinges.'
+      },
+      {
+        id: 'OWS-08',
+        name: 'Floor Mount Freestanding Bath Filler Tap',
+        category: 'Brassware & Taps',
+        badge: 'Luxury Architectural',
+        image: 'https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=700&q=80',
+        sku: 'OWS-TP-992',
+        material: 'Solid Brass Body, Handheld Wand & Flexible Hose',
+        size: 'Overall height 1080mm, High-flow cascade spout',
+        pressure: 'Min 2.0 Bar Recommended',
+        warranty: '5 Years Warranty',
+        description: 'Statement bath tap designed for standalone tubs. Comes complete with concrete rough-in mounting box for maximum stability.'
+      }
+    ];
+
+    let currentCategory = 'All';
+    let searchQuery = '';
+    let cart = [];
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const emptyState = document.getElementById('emptyState');
+      const countLabel = document.getElementById('resultsCount');
+
+      let filtered = PRODUCTS.filter(item => {
+        const matchesCat = (currentCategory === 'All' || item.category === currentCategory);
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              item.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              item.material.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCat && matchesSearch;
+      });
+
+      // Sorting
+      const sortVal = document.getElementById('sortSelect').value;
+      if (sortVal === 'name-asc') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortVal === 'category') {
+        filtered.sort((a, b) => a.category.localeCompare(b.category));
+      }
+
+      countLabel.textContent = `Showing ${filtered.length} of ${PRODUCTS.length} products`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(product => {
+        const waProductLink = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+          `Hello Ottoman Water Solutions! I would like to request current pricing and availability for:\n\n*${product.name}*\nSKU: ${product.sku}\nCategory: ${product.category}`
+        )}`;
+
+        return `
+          <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between group">
+            <div class="relative overflow-hidden aspect-[4/3] bg-black/40">
+              <img 
+                src="${product.image}" 
+                alt="${product.name}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/600x450/1e0711/fca5a5?text=Ottoman+Plumbing+Hardware'"
+              />
+              <span class="absolute top-3 left-3 text-[10px] font-semibold px-2.5 py-1 rounded-full badge-wine">
+                ${product.badge}
+              </span>
+              <button 
+                onclick="openQuickView('${product.id}')"
+                class="absolute bottom-3 right-3 p-2 rounded-xl bg-black/60 hover:bg-rose-900/80 backdrop-blur-md text-white border border-white/20 transition-all opacity-90 hover:opacity-100 text-xs flex items-center gap-1.5"
+                title="View Technical Details"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <span>Specs</span>
+              </button>
+            </div>
+
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400/80">
+                  ${product.category}
+                </span>
+                <h3 class="font-heading font-semibold text-white text-sm mt-0.5 line-clamp-2" title="${product.name}">
+                  ${product.name}
+                </h3>
+                <p class="text-[11px] text-gray-400 font-mono mt-1">SKU: ${product.sku}</p>
+                <p class="text-xs text-gray-300 mt-2 line-clamp-2 leading-relaxed">
+                  ${product.description}
+                </p>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-white/10 flex flex-col gap-2">
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-2 gap-2">
+                  <button 
+                    onclick="addToCart('${product.id}')"
+                    class="py-2 px-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-rose-950/60 border border-white/10 hover:border-rose-400/40 text-gray-200 hover:text-white transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <svg class="w-3.5 h-3.5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    Add to List
+                  </button>
+                  <a 
+                    href="${waProductLink}" 
+                    target="_blank"
+                    class="py-2 px-2.5 rounded-xl text-xs font-semibold bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 transition-all flex items-center justify-center gap-1.5 text-center"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-emerald-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                    Quote
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      const pills = document.querySelectorAll('.category-pill');
+      pills.forEach(pill => {
+        if (pill.getAttribute('data-category') === cat) {
+          pill.className = 'category-pill pill-active whitespace-nowrap px-4 py-2 rounded-xl border border-white/10 transition-all';
+        } else {
+          pill.className = 'category-pill whitespace-nowrap px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-rose-400/40 text-gray-300 hover:text-white transition-all';
+        }
+      });
+      renderProducts();
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById('searchInput').value.trim();
+      renderProducts();
+    }
+
+    function handleSort() {
+      renderProducts();
+    }
+
+    function resetFilters() {
+      searchQuery = '';
+      document.getElementById('searchInput').value = '';
+      filterCategory('All');
+    }
+
+    function openQuickView(id) {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+
+      document.getElementById('modalImg').src = p.image;
+      document.getElementById('modalBadge').innerText = p.badge;
+      document.getElementById('modalCategory').innerText = p.category;
+      document.getElementById('modalTitle').innerText = p.name;
+      document.getElementById('modalSKU').innerText = `SKU: ${p.sku}`;
+      document.getElementById('modalDescription').innerText = p.description;
+      document.getElementById('modalMaterial').innerText = p.material;
+      document.getElementById('modalSize').innerText = p.size;
+      document.getElementById('modalPressure').innerText = p.pressure;
+      document.getElementById('modalWarranty').innerText = p.warranty;
+
+      document.getElementById('modalAddBasketBtn').onclick = () => {
+        addToCart(p.id);
+        closeQuickView();
+      };
+
+      const waModalLink = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+        `Hello Ottoman Water Solutions! I would like details and pricing on:\n*${p.name}* (SKU: ${p.sku})`
+      )}`;
+      document.getElementById('modalWhatsAppBtn').href = waModalLink;
+
+      const modal = document.getElementById('quickViewModal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+      }, 10);
+    }
+
+    function closeQuickView() {
+      const modal = document.getElementById('quickViewModal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function addToCart(id) {
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        const product = PRODUCTS.find(p => p.id === id);
+        if (product) {
+          cart.push({ ...product, quantity: 1 });
+        }
+      }
+      updateCartUI();
+      showToast('Item added to inquiry basket');
+    }
+
+    function changeQuantity(id, delta) {
+      const item = cart.find(x => x.id === id);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(x => x.id !== id);
+      }
+      updateCartUI();
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const countBadge = document.getElementById('cartCountBadge');
+      const totalItemsLabel = document.getElementById('cartTotalItems');
+      const container = document.getElementById('cartItemsList');
+
+      const totalCount = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+      countBadge.innerText = totalCount;
+      totalItemsLabel.innerText = `${totalCount} item${totalCount === 1 ? '' : 's'}`;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-gray-400">
+            <svg class="w-10 h-10 mx-auto mb-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <p class="text-xs">Your inquiry basket is empty.</p>
+            <p class="text-[11px] text-gray-500 mt-1">Browse catalogue items to assemble your custom quote list.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+          <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-lg object-cover bg-black">
+          <div class="flex-1 min-w-0">
+            <h4 class="text-xs font-semibold text-white truncate">${item.name}</h4>
+            <span class="text-[10px] text-gray-400 font-mono">SKU: ${item.sku}</span>
+            <div class="flex items-center gap-2 mt-1">
+              <button onclick="changeQuantity('${item.id}', -1)" class="w-5 h-5 rounded bg-white/10 text-white flex items-center justify-center text-xs hover:bg-rose-900 transition-colors">-</button>
+              <span class="text-xs text-white font-medium">${item.quantity}</span>
+              <button onclick="changeQuantity('${item.id}', 1)" class="w-5 h-5 rounded bg-white/10 text-white flex items-center justify-center text-xs hover:bg-rose-900 transition-colors">+</button>
+            </div>
+          </div>
+          <button onclick="changeQuantity('${item.id}', -${item.quantity})" class="text-gray-500 hover:text-rose-400 p-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function checkoutViaWhatsApp() {
+      if (cart.length === 0) {
+        showToast('Please add items to your basket first');
+        return;
+      }
+
+      let message = `*INQUIRY / B.O.Q REQUEST - OTTOMAN WATER SOLUTIONS*\n`;
+      message += `Date: ${new Date().toLocaleDateString()}\n\n`;
+      message += `Hello! I would like to request quotation and stock availability for the following items:\n\n`;
+
+      cart.forEach((item, index) => {
+        message += `${index + 1}. *${item.name}*\n   - SKU: ${item.sku}\n   - Qty: ${item.quantity}\n   - Category: ${item.category}\n\n`;
+      });
+
+      message += `Please advise on unit pricing, trade discounts, and delivery timelines.\nThank you!`;
+
+      const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeQuickView();
+        toggleCartDrawer(false);
+      }
+    });
+
+    // Initial render on load
+    window.onload = function() {
+      renderProducts();
+      updateCartUI();
+    };
+  </script>
+</body>
+</html>
+```
