@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Catalogue & Order | Ottoman Construction & Water Solutions</title>
+  <title>Product Catalogue | Ottoman Construction & Water Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,17 +11,17 @@
     :root {
       --bg-dark: #0a0809;
       --bg-card: rgba(22, 16, 18, 0.78);
-      --bg-card-hover: rgba(35, 22, 27, 0.9);
+      --bg-card-hover: rgba(36, 24, 28, 0.88);
       --wine: #721625;
       --crimson: #9e1b32;
       --accent: #e23b53;
-      --accent-glow: rgba(226, 59, 83, 0.35);
+      --accent-glow: rgba(226, 59, 83, 0.28);
       --wa-green: #25D366;
       --wa-glow: rgba(37, 211, 102, 0.35);
       --text-main: #f5f5f7;
       --text-muted: #a39ea2;
       --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(226, 59, 83, 0.45);
+      --border-accent: rgba(226, 59, 83, 0.4);
       --font-main: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -34,20 +34,20 @@
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(114, 22, 37, 0.32) 0%, transparent 45%),
-        radial-gradient(circle at 85% 70%, rgba(158, 27, 50, 0.22) 0%, transparent 45%);
+        radial-gradient(circle at 15% 15%, rgba(114, 22, 37, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(158, 27, 50, 0.2) 0%, transparent 40%);
       background-attachment: fixed;
       color: var(--text-main);
       font-family: var(--font-main);
       line-height: 1.5;
       min-height: 100vh;
-      padding-bottom: 110px;
+      padding-bottom: 90px;
     }
 
     header {
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: rgba(10, 8, 9, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 8, 9, 0.85);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -67,29 +67,29 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
       color: inherit;
     }
 
     .brand-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
       background: linear-gradient(135deg, var(--crimson), var(--wine));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 19px;
-      font-weight: 800;
+      font-size: 18px;
+      font-weight: 700;
       border: 1px solid var(--accent);
-      box-shadow: 0 0 16px var(--accent-glow);
+      box-shadow: 0 0 15px var(--accent-glow);
     }
 
     .brand-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
@@ -97,58 +97,67 @@
       display: block;
       font-size: 0.65rem;
       color: var(--accent);
-      letter-spacing: 0.16em;
-      font-weight: 700;
+      letter-spacing: 0.15em;
+      font-weight: 600;
     }
 
-    .cart-trigger-btn {
-      background: rgba(226, 59, 83, 0.14);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .home-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .home-link:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .boq-btn {
+      background: rgba(226, 59, 83, 0.15);
       border: 1px solid var(--accent);
       color: #fff;
-      padding: 8px 16px;
-      border-radius: 24px;
-      font-size: 0.85rem;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 9px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 8px;
+      transition: all 0.2s;
     }
 
-    .cart-trigger-btn:hover {
+    .boq-btn:hover {
       background: var(--accent);
-      box-shadow: 0 0 20px var(--accent-glow);
-      transform: translateY(-2px);
+      box-shadow: 0 0 16px var(--accent-glow);
     }
 
     .badge-count {
       background: #fff;
       color: var(--wine);
       border-radius: 50%;
-      width: 20px;
-      height: 20px;
+      width: 19px;
+      height: 19px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 0.72rem;
       font-weight: 800;
-      transition: transform 0.2s ease;
-    }
-
-    .badge-bounce {
-      animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    @keyframes pop {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.35); }
-      100% { transform: scale(1); }
     }
 
     .hero {
       max-width: 900px;
-      margin: 36px auto 22px;
+      margin: 30px auto 20px;
       padding: 0 20px;
       text-align: center;
     }
@@ -157,25 +166,25 @@
       display: inline-block;
       padding: 4px 14px;
       border-radius: 20px;
-      background: rgba(226, 59, 83, 0.14);
-      border: 1px solid rgba(226, 59, 83, 0.35);
+      background: rgba(226, 59, 83, 0.12);
+      border: 1px solid rgba(226, 59, 83, 0.3);
       color: var(--accent);
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
     .hero h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       margin-bottom: 10px;
     }
 
     .hero h1 span {
-      background: linear-gradient(120deg, #ffffff, #ffa0b0);
+      background: linear-gradient(120deg, #fff, #ff8da1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -205,28 +214,27 @@
       width: 100%;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 18px 14px 46px;
+      border-radius: 12px;
+      padding: 13px 18px 13px 44px;
       font-size: 0.95rem;
       color: var(--text-main);
       font-family: inherit;
       outline: none;
-      transition: all 0.25s ease;
+      transition: all 0.2s;
     }
 
     .search-input:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 16px var(--accent-glow);
-      background: rgba(28, 19, 22, 0.9);
+      box-shadow: 0 0 14px var(--accent-glow);
     }
 
     .search-icon {
       position: absolute;
-      left: 17px;
+      left: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-muted);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
 
     .category-scroll {
@@ -235,7 +243,7 @@
       overflow-x: auto;
       padding-bottom: 8px;
       scrollbar-width: thin;
-      scrollbar-color: var(--crimson) transparent;
+      scrollbar-color: var(--wine) transparent;
     }
 
     .category-scroll::-webkit-scrollbar {
@@ -243,7 +251,7 @@
     }
 
     .category-scroll::-webkit-scrollbar-thumb {
-      background: var(--crimson);
+      background: var(--wine);
       border-radius: 4px;
     }
 
@@ -251,7 +259,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 8px 16px;
+      padding: 7px 15px;
       border-radius: 30px;
       font-size: 0.82rem;
       font-weight: 500;
@@ -269,8 +277,19 @@
       background: linear-gradient(135deg, var(--crimson), var(--wine));
       color: #fff;
       border-color: var(--accent);
-      box-shadow: 0 0 16px var(--accent-glow);
-      font-weight: 700;
+      box-shadow: 0 0 14px var(--accent-glow);
+      font-weight: 600;
+    }
+
+    .status-bar {
+      max-width: 1280px;
+      margin: 0 auto 16px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     .products-grid {
@@ -278,49 +297,96 @@
       margin: 0 auto;
       padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 18px;
     }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
       position: relative;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: var(--border-accent);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
 
-    .card-img-wrap {
-      width: 100%;
-      height: 200px;
-      background: #140e11;
-      overflow: hidden;
+    .card-photo {
+      aspect-ratio: 1 / 1;
+      background: #110d0f;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      padding: 10px;
+      cursor: zoom-in;
     }
 
-    .card-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
+    .card-photo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
-    .card:hover .card-img-wrap img {
-      transform: scale(1.05);
+    .size-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(226, 59, 83, 0.12);
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .drawer-thumb {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      background: #1a1417;
+      border-radius: 6px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .drawer-item-main {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(640px, 100%);
+      max-height: 85vh;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      object-fit: contain;
     }
 
     .card-top {
@@ -338,21 +404,22 @@
       background: rgba(226, 59, 83, 0.12);
       padding: 3px 8px;
       border-radius: 6px;
-      border: 1px solid rgba(226, 59, 83, 0.25);
+      border: 1px solid rgba(226, 59, 83, 0.2);
     }
 
     .finish-pill {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
       font-weight: 600;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 4px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--text-muted);
     }
 
     .card-body {
-      padding: 6px 16px 16px;
+      padding: 8px 16px 16px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -361,96 +428,62 @@
 
     .item-title {
       font-size: 0.95rem;
-      font-weight: 700;
+      font-weight: 600;
       color: #fff;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       line-height: 1.35;
     }
 
     .item-category {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .item-price {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #ff9fb0;
       margin-bottom: 12px;
     }
 
     .card-footer {
       display: flex;
       align-items: center;
-      gap: 8px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 12px;
+      margin-top: auto;
     }
 
-    .qty-control {
-      display: inline-flex;
-      align-items: center;
+    .quote-action-btn {
+      width: 100%;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .qty-btn {
-      background: transparent;
-      border: none;
-      color: #fff;
-      width: 28px;
-      height: 32px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-
-    .qty-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .qty-val {
-      font-size: 0.85rem;
-      font-weight: 700;
-      width: 26px;
-      text-align: center;
-    }
-
-    .add-cart-btn {
-      flex: 1;
-      background: rgba(226, 59, 83, 0.15);
-      border: 1px solid var(--accent);
-      color: #fff;
+      color: var(--text-main);
       padding: 8px 12px;
       border-radius: 8px;
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
     }
 
-    .add-cart-btn:hover {
-      background: var(--accent);
-      box-shadow: 0 0 16px var(--accent-glow);
+    .quote-action-btn:hover {
+      background: var(--crimson);
+      border-color: var(--accent);
+      color: #fff;
     }
 
     .drawer-overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
       z-index: 200;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s;
     }
 
     .drawer-overlay.active {
@@ -460,17 +493,19 @@
 
     .drawer {
       position: fixed;
-      right: 0; top: 0; bottom: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
       width: 100%;
-      max-width: 440px;
-      background: #120c0e;
+      max-width: 420px;
+      background: #110d0f;
       border-left: 1px solid var(--border);
       z-index: 201;
       transform: translateX(100%);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
-      box-shadow: -10px 0 35px rgba(0, 0, 0, 0.8);
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.7);
     }
 
     .drawer.active {
@@ -478,7 +513,7 @@
     }
 
     .drawer-header {
-      padding: 18px 22px;
+      padding: 18px 20px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -486,7 +521,7 @@
     }
 
     .drawer-header h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
     }
 
@@ -494,7 +529,7 @@
       background: transparent;
       border: none;
       color: var(--text-muted);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       cursor: pointer;
     }
 
@@ -513,13 +548,13 @@
       align-items: center;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      padding: 12px 14px;
-      border-radius: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
     }
 
     .drawer-item-info h4 {
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
 
     .drawer-item-info span {
@@ -528,36 +563,28 @@
       font-family: monospace;
     }
 
+    .remove-btn {
+      background: transparent;
+      border: none;
+      color: #ff5252;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 4px 6px;
+    }
+
     .drawer-footer {
       padding: 20px;
       border-top: 1px solid var(--border);
-      background: rgba(12, 8, 10, 0.95);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      background: rgba(10, 8, 9, 0.95);
     }
 
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .summary-row.total {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    /* Official WhatsApp Button Styling */
-    .whatsapp-btn {
+    .whatsapp-send-btn {
       width: 100%;
-      background: #25D366;
+      background: var(--wa-green);
       color: #ffffff;
       border: none;
       padding: 14px 18px;
-      border-radius: 12px;
+      border-radius: 10px;
       font-weight: 700;
       font-size: 0.95rem;
       cursor: pointer;
@@ -565,11 +592,12 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      text-decoration: none;
       transition: all 0.25s ease;
       box-shadow: 0 4px 16px var(--wa-glow);
     }
 
-    .whatsapp-btn:hover {
+    .whatsapp-send-btn:hover {
       background: #20ba5a;
       box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
       transform: translateY(-2px);
@@ -589,6 +617,14 @@
       margin: 40px auto;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.5rem; }
+      .products-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+      .card-top { padding: 12px 12px 6px; }
+      .card-body { padding: 6px 12px 12px; }
+      .item-title { font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
@@ -602,9 +638,10 @@
           <span>Water Solutions</span>
         </div>
       </a>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <button class="cart-trigger-btn" onclick="toggleDrawer()">
-          <span>Quote Basket</span>
+      <div class="header-actions">
+        <a href="index.html" class="home-link">Home</a>
+        <button class="boq-btn" onclick="toggleDrawer()">
+          <span>Quote List</span>
           <span class="badge-count" id="badgeCount">0</span>
         </button>
       </div>
@@ -612,9 +649,9 @@
   </header>
 
   <section class="hero">
-    <div class="hero-badge">Direct Contractor Order Range</div>
-    <h1>Premium Fixtures & <span>Water Solutions</span></h1>
-    <p>Sanitary ware, precision brass taps, piano shower systems, sinks & heavy fittings in Nairobi.</p>
+    <div class="hero-badge">Official Catalog Range</div>
+    <h1>Ottoman Construction & <span>Water Solutions</span></h1>
+    <p>Sanitary ware, precision taps, multi-function showers, sinks & drainage systems.</p>
   </section>
 
   <div class="controls-wrapper">
@@ -628,62 +665,353 @@
         oninput="handleSearch()"
       >
     </div>
+
     <div class="category-scroll" id="catScroll"></div>
+  </div>
+
+  <div class="status-bar">
+    <div id="resultsCount">Loading products...</div>
+    <div>Nairobi, Kenya</div>
   </div>
 
   <main class="products-grid" id="productGrid"></main>
 
-  <!-- Quote Drawer -->
+  <div class="lightbox" id="lightbox" onclick="closePhoto()"><img id="lightboxImg" alt=""></div>
+
   <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
   <div class="drawer" id="drawer">
     <div class="drawer-header">
-      <h3>Your Order & B.O.Q List</h3>
+      <h3>Quotation Inquiry Basket</h3>
       <button class="close-btn" onclick="toggleDrawer()">✕</button>
     </div>
     <div class="drawer-content" id="drawerContent">
-      <div class="empty-state">Your basket is empty. Select products and quantities to prepare an instant WhatsApp order.</div>
+      <div class="empty-state">No products added yet. Browse the catalogue and click "+ Add to Quote" to build an instant bill of quantities.</div>
     </div>
     <div class="drawer-footer">
-      <div class="summary-row total">
-        <span>Total Items Selected:</span>
-        <span id="drawerTotalQty">0 units</span>
-      </div>
-      <!-- Official SVG WhatsApp Button -->
-      <button class="whatsapp-btn" onclick="sendWhatsappQuote()">
+      <button class="whatsapp-send-btn" onclick="sendWhatsappQuote()">
         <svg class="whatsapp-icon" viewBox="0 0 24 24">
           <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.34 16.41C4.55 15.15 4.13 13.69 4.13 11.91C4.13 7.37 7.84 3.67 12.05 3.67ZM8.73 7.33C8.56 7.33 8.28 7.39 8.05 7.64C7.81 7.9 7.15 8.52 7.15 9.79C7.15 11.06 8.08 12.28 8.2 12.45C8.33 12.62 10.02 15.23 12.61 16.34C13.23 16.61 13.71 16.76 14.09 16.88C14.71 17.08 15.27 17.05 15.72 16.98C16.22 16.91 17.25 16.36 17.47 15.75C17.68 15.13 17.68 14.61 17.62 14.5C17.56 14.39 17.39 14.33 17.14 14.2C16.89 14.07 15.65 13.46 15.42 13.38C15.19 13.29 15.02 13.25 14.85 13.51C14.68 13.77 14.2 14.33 14.05 14.5C13.9 14.67 13.76 14.69 13.51 14.57C13.26 14.44 12.46 14.18 11.51 13.33C10.77 12.67 10.27 11.85 10.13 11.6C9.98 11.35 10.11 11.21 10.24 11.09C10.35 10.98 10.49 10.79 10.62 10.65C10.74 10.5 10.79 10.39 10.87 10.22C10.95 10.05 10.91 9.9 10.85 9.78C10.79 9.65 10.31 8.46 10.1 7.97C9.9 7.48 9.7 7.55 9.55 7.54C9.4 7.53 9.24 7.53 9.07 7.53L8.73 7.33Z"/>
         </svg>
-        <span>Send Order via WhatsApp</span>
+        <span>Send Quote via WhatsApp</span>
       </button>
     </div>
   </div>
 
   <script>
     const CATALOGUE_DATA = [
-      { code: "GJ8200S", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Silver", img: "af68061eb8.jpg" },
-      { code: "GJ8200H", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Grey", img: "cfb11918e7.jpg" },
-      { code: "GJ8200K", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Black", img: "af81d41dcc.jpg" },
-      { code: "3016C", name: "Modern Basin Mixer", cat: "Basin Mixers & Taps", finish: "Chrome", img: "1b0e712a94.jpg" },
-      { code: "3009K", name: "Basin Mixer Flat Arch", cat: "Basin Mixers & Taps", finish: "Black", img: "7b04b68cf8.jpg" },
-      { code: "3020TC", name: "Tall Countertop Basin Mixer", cat: "Basin Mixers & Taps", finish: "Chrome", img: "d47528c6ff.jpg" },
-      { code: "6016K", name: "Pull-Out Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "7d85a669d8.jpg" },
-      { code: "6019C", name: "Commercial Spring Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "ea057a5ab9.jpg" },
-      { code: "7546-5K", name: "Waterfall 5-Key Piano Sink (75x46cm)", cat: "Kitchen Sinks", finish: "Black", img: "5aaccadf4e.jpg" },
-      { code: "7843LS", name: "Double Bowl Sink (78x43cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", img: "464163098a.jpg" },
-      { code: "8021K", name: "Digital LED Piano Shower System", cat: "Shower Sets", finish: "Black", img: "b8e6635bf8.jpg" },
-      { code: "8016H", name: "4-in-1 Piano Shower Set", cat: "Shower Sets", finish: "Grey", img: "c70b4c88bb.jpg" },
-      { code: "8306C", name: "3-in-1 Piano Digital Bath Mixer", cat: "Bath Mixers", finish: "Chrome", img: "1a496b1407.jpg" },
-      { code: "8401K", name: "Freestanding Bath Mixer", cat: "Bath Mixers", finish: "Black", img: "0b04b8a816.jpg" },
-      { code: "LL9013-3H", name: "3-Way Concealed Diverter Mixer", cat: "Concealed Mixers", finish: "Grey", img: "7b2b193a15.jpg" },
-      { code: "9015C", name: "Dual-Function Angle Valve 1/2\"", cat: "Angle Valves & Filters", finish: "Chrome", img: "ef33a28a82.jpg" },
-      { code: "2001-80", name: "Sintered Stone Vanity Set (80cm)", cat: "Vanity Cabinets & Mirrors", finish: "Stone Grey", img: "fbda2ba322.jpg" },
-      { code: "LED8060", name: "Smart Tricolor LED Mirror (80x60cm)", cat: "Vanity Cabinets & Mirrors", finish: "LED Smart", img: "8643eab0cb.jpg" },
-      { code: "T620/660-1K", name: "Linear Floor Drainer (20-60cm)", cat: "Drainers & Hoses", finish: "Black", img: "e1476a4951.jpg" }
+      // Bathroom Accessories
+      { code: "GJ8200S", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Silver", img: "img/0344668727.jpg" },
+      { code: "GJ8200H", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Grey", img: "img/9ea56898e6.jpg" },
+      { code: "GJ8200K", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Black", img: "img/c844975476.jpg" },
+      { code: "GJ8100S", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Silver", img: "img/52b8f6c7e5.jpg" },
+      { code: "GJ8100H", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Grey", img: "img/ea8e96bf3f.jpg" },
+      { code: "GJ8100K", name: "Bathroom Accessories Set", cat: "Bathroom Accessories", finish: "Black", img: "img/8404b3c3af.jpg" },
+      { code: "GJ8201S", name: "Single Towel Rack", cat: "Bathroom Accessories", finish: "Silver", img: "img/59de0cdb30.jpg" },
+      { code: "GJ8201H", name: "Single Towel Rack", cat: "Bathroom Accessories", finish: "Grey", img: "img/59de0cdb30.jpg" },
+      { code: "GJ8201K", name: "Single Towel Rack", cat: "Bathroom Accessories", finish: "Black", img: "img/59de0cdb30.jpg" },
+      { code: "GJ602S", name: "Double Towel Rack", cat: "Bathroom Accessories", finish: "Silver", img: "img/b2f9295e9f.jpg" },
+      { code: "GJ602G", name: "Double Towel Rack", cat: "Bathroom Accessories", finish: "Gold", img: "img/b2f9295e9f.jpg" },
+      { code: "GJ602H", name: "Double Towel Rack", cat: "Bathroom Accessories", finish: "Grey", img: "img/b2f9295e9f.jpg" },
+      { code: "GJ602K", name: "Double Towel Rack", cat: "Bathroom Accessories", finish: "Black", img: "img/b2f9295e9f.jpg" },
+      { code: "GJ702/GJ902", name: "Single Towel Rack (70/90cm)", cat: "Bathroom Accessories", finish: "Silver", size: "70cm / 90cm", img: "img/b4996d9714.jpg" },
+      { code: "GJ8210S", name: "Toothbrush Holder", cat: "Bathroom Accessories", finish: "Silver", img: "img/4a3ad12c8f.jpg" },
+      { code: "GJ8210H", name: "Toothbrush Holder", cat: "Bathroom Accessories", finish: "Grey", img: "img/4a3ad12c8f.jpg" },
+      { code: "GJ8210K", name: "Toothbrush Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/4a3ad12c8f.jpg" },
+      { code: "GJ8211S", name: "Double Toothbrush Holder", cat: "Bathroom Accessories", finish: "Silver", img: "img/825112bdac.jpg" },
+      { code: "GJ8211H", name: "Double Toothbrush Holder", cat: "Bathroom Accessories", finish: "Grey", img: "img/825112bdac.jpg" },
+      { code: "GJ8211K", name: "Double Toothbrush Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/825112bdac.jpg" },
+      { code: "GJ8213S", name: "Toilet Brush Holder", cat: "Bathroom Accessories", finish: "Silver", img: "img/a52c1db29f.jpg" },
+      { code: "GJ8213H", name: "Toilet Brush Holder", cat: "Bathroom Accessories", finish: "Grey", img: "img/69a392faf8.jpg" },
+      { code: "GJ8213K", name: "Toilet Brush Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/1cb4a0ade0.jpg" },
+      { code: "GJR822C", name: "Toothbrush Holder Wall Mounted", cat: "Bathroom Accessories", finish: "Chrome", img: "img/95609fb96b.jpg" },
+      { code: "GJR822K", name: "Toothbrush Holder Wall Mounted", cat: "Bathroom Accessories", finish: "Black", img: "img/90dfdc7b77.jpg" },
+      { code: "GJR823C", name: "Double Toothbrush Holder", cat: "Bathroom Accessories", finish: "Chrome", img: "img/5cd1598a9e.jpg" },
+      { code: "GJR823K", name: "Double Toothbrush Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/f18eb95daf.jpg" },
+      { code: "GJ824C", name: "Toothbrush Holder Classic", cat: "Bathroom Accessories", finish: "Chrome", img: "img/cc031b0bc6.jpg" },
+      { code: "GJ824K", name: "Toothbrush Holder Classic", cat: "Bathroom Accessories", finish: "Black", img: "img/ac9b6d3e2f.jpg" },
+      { code: "GJ825C", name: "Double Tooth Brush Holder", cat: "Bathroom Accessories", finish: "Chrome", img: "img/1f079713ed.jpg" },
+      { code: "GJ825K", name: "Double Tooth Brush Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/4e33df3d9d.jpg" },
+      { code: "GJ8801", name: "Towel Rail", cat: "Bathroom Accessories", finish: "Chrome", img: "img/1885f3a4d2.jpg" },
+      { code: "GJ8802K", name: "Towel Rail", cat: "Bathroom Accessories", finish: "Black", img: "img/0db9cc50d1.jpg" },
+      { code: "GJ1052C-4/GJ1052C-5", name: "Hooks", cat: "Bathroom Accessories", finish: "Mirror Finish", img: "img/923256c0d6.jpg" },
+      { code: "GJ1052K-4/GJ1052K-5", name: "Hooks", cat: "Bathroom Accessories", finish: "Black", img: "img/205a9e14fb.jpg" },
+      { code: "GJS6603", name: "Soap Dish Holder", cat: "Bathroom Accessories", finish: "Chrome", img: "img/cc99d3b3c4.jpg" },
+      { code: "GJS6603K", name: "Soap Dish Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/68a3a7d628.jpg" },
+      { code: "GJ6604C", name: "Soap Dish", cat: "Bathroom Accessories", finish: "Chrome", img: "img/3fb7ec1716.jpg" },
+      { code: "GJ6604K", name: "Soap Dish", cat: "Bathroom Accessories", finish: "Black", img: "img/d634501ee0.jpg" },
+      { code: "GJS6601", name: "Tissue Holder Covered", cat: "Bathroom Accessories", finish: "Chrome", img: "img/54ac799d25.jpg" },
+      { code: "GJS6601K", name: "Tissue Holder Covered", cat: "Bathroom Accessories", finish: "Black", img: "img/583d6e432b.jpg" },
+      { code: "GJS6602", name: "Tissue Holder", cat: "Bathroom Accessories", finish: "Chrome", img: "img/d3eb28a843.jpg" },
+      { code: "GJS6605C", name: "Tissue Holder", cat: "Bathroom Accessories", finish: "Chrome", img: "img/6179a9b3c7.jpg" },
+      { code: "GJS6605K", name: "Tissue Holder", cat: "Bathroom Accessories", finish: "Black", img: "img/4278c4670b.jpg" },
+      { code: "GJS6606C", name: "Towel Ring", cat: "Bathroom Accessories", finish: "Chrome", img: "img/1b0e712a94.jpg" },
+      { code: "GJS6606K", name: "Towel Ring", cat: "Bathroom Accessories", finish: "Black", img: "img/586ccec738.jpg" },
+      { code: "GJS6610C", name: "Corner Basket", cat: "Bathroom Accessories", finish: "Chrome", img: "img/77b43927e7.jpg" },
+      { code: "GJS6610K", name: "Corner Basket", cat: "Bathroom Accessories", finish: "Black", img: "img/5aa5ed8085.jpg" },
+      { code: "GJ6611C", name: "Double Corner Basket", cat: "Bathroom Accessories", finish: "Chrome", img: "img/f5ff3cb880.jpg" },
+      { code: "GJ6611K", name: "Double Corner Basket", cat: "Bathroom Accessories", finish: "Black", img: "img/28b6f4bfae.jpg" },
+      { code: "GJ6612C", name: "Double Corner Basket", cat: "Bathroom Accessories", finish: "Chrome", img: "img/ccc7f244d9.jpg" },
+      { code: "GJ6612K", name: "Double Corner Basket", cat: "Bathroom Accessories", finish: "Black", img: "img/b1f910e602.jpg" },
+      { code: "TX27-1W", name: "Soap Dispenser 500ml", cat: "Bathroom Accessories", finish: "White", size: "500ml", img: "img/1d7fde8698.jpg" },
+      { code: "TX29-1W", name: "Soap Dispenser", cat: "Bathroom Accessories", finish: "White", size: "350ml", img: "img/e08ef608fd.jpg" },
+      { code: "TX33-1B", name: "Soap Dispenser 400ml", cat: "Bathroom Accessories", finish: "Black", size: "400ml", img: "img/22728c8f7e.jpg" },
+      { code: "TX35BK", name: "Soap Dispenser", cat: "Bathroom Accessories", finish: "Black", size: "1000ml", img: "img/b1564ca266.jpg" },
+      { code: "TX35W", name: "Soap Dispenser", cat: "Bathroom Accessories", finish: "White", size: "1000ml", img: "img/6007adbfe5.jpg" },
+      { code: "HD113", name: "Automatic Hand Dryer", cat: "Bathroom Accessories", finish: "White", img: "img/a937a3cc4b.jpg" },
+
+      // Basin Mixers & Taps
+      { code: "3011C", name: "Basin Mixer Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/33419d71ee.jpg" },
+      { code: "3002C", name: "Basin Mixer Modern", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/2e52e3359f.jpg" },
+      { code: "3002", name: "Basin Mixer Modern", cat: "Basin Mixers & Taps", finish: "Brushed Nickel", img: "img/6aad90b07a.jpg" },
+      { code: "3002K", name: "Basin Mixer Modern", cat: "Basin Mixers & Taps", finish: "Black", img: "img/d11c76b251.jpg" },
+      { code: "3002H", name: "Basin Mixer Modern", cat: "Basin Mixers & Taps", finish: "Grey", img: "img/821d558e5f.jpg" },
+      { code: "3003C", name: "Basin Mixer", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/c005fa51b8.jpg" },
+      { code: "3015C", name: "Basin Mixer Slanted Spout", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/ee03d8b40f.jpg" },
+      { code: "3015H", name: "Basin Mixer Slanted Spout", cat: "Basin Mixers & Taps", finish: "Grey", img: "img/d09b6612c2.jpg" },
+      { code: "3015K", name: "Basin Mixer Slanted Spout", cat: "Basin Mixers & Taps", finish: "Black", img: "img/6049e24c12.jpg" },
+      { code: "3016C", name: "Basin Mixer Linear", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/3e5df5b810.jpg" },
+      { code: "3016H", name: "Basin Mixer Linear", cat: "Basin Mixers & Taps", finish: "Grey", img: "img/d5f3ecedd6.jpg" },
+      { code: "3016K", name: "Basin Mixer Linear", cat: "Basin Mixers & Taps", finish: "Black", img: "img/f5c6975cd9.jpg" },
+      { code: "3009C", name: "Basin Mixer Flat Arch", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/6aec1e6b7c.jpg" },
+      { code: "3009K", name: "Basin Mixer Flat Arch", cat: "Basin Mixers & Taps", finish: "Black", img: "img/2b9aac2620.jpg" },
+      { code: "3009H", name: "Basin Mixer Flat Arch", cat: "Basin Mixers & Taps", finish: "Grey", img: "img/a0121f3b87.jpg" },
+      { code: "3014", name: "Basin Mixer", cat: "Basin Mixers & Taps", finish: "Brushed Nickel", img: "img/b8e6635bf8.jpg" },
+      { code: "3014K", name: "Basin Mixer", cat: "Basin Mixers & Taps", finish: "Black", img: "img/64e8a71eb9.jpg" },
+      { code: "3020TC", name: "Tall Basin Mixer (Countertop)", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/b6a4c9293b.jpg" },
+      { code: "3019TC", name: "Tall Basin Mixer High Arc", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/3394e919de.jpg" },
+      { code: "3019TK", name: "Tall Basin Mixer High Arc", cat: "Basin Mixers & Taps", finish: "Black", img: "img/d8fae27211.jpg" },
+      { code: "3019TH", name: "Basin Mixer (Tall)", cat: "Basin Mixers & Taps", finish: "Brushed Nickel", img: "img/048b28495e.jpg" },
+      { code: "3021TC", name: "Basin Mixer (Tall)", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/21b278bc93.jpg" },
+      { code: "3022C", name: "Basin Mixer (Tall)", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/d76ecf90c3.jpg" },
+      { code: "3022TK", name: "Basin Mixer (Tall)", cat: "Basin Mixers & Taps", finish: "Black", img: "img/94af89127c.jpg" },
+      { code: "3017C", name: "Pull-Out Basin Mixer", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/b63024aedb.jpg" },
+      { code: "3017K", name: "Pull-Out Basin Mixer", cat: "Basin Mixers & Taps", finish: "Black", img: "img/9e20b1406a.jpg" },
+      { code: "2201", name: "Single Cold Basin Tap", cat: "Basin Mixers & Taps", finish: "Brushed Nickel", img: "img/fa8abbfc52.jpg" },
+      { code: "2201K", name: "Single Cold Basin Tap", cat: "Basin Mixers & Taps", finish: "Black", img: "img/71b88bfbb4.jpg" },
+      { code: "2203", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Brushed Nickel", img: "img/f170e924cd.jpg" },
+      { code: "2203K", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Black", img: "img/5d32c82dfa.jpg" },
+      { code: "2204C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/1f60b404a6.jpg" },
+      { code: "2205C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/f545614499.jpg" },
+      { code: "2206C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/71922ba834.jpg" },
+      { code: "2207C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/cf4a36aa8e.jpg" },
+      { code: "2208C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/483da0420c.jpg" },
+      { code: "2310C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/7efee9647e.jpg" },
+      { code: "2311C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/ef33a28a82.jpg" },
+      { code: "2312C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/73b950da41.jpg" },
+      { code: "2313C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/b308fb1fee.jpg" },
+      { code: "2314C", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/5b035f4cc2.jpg" },
+      { code: "2314K", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Black", img: "img/a57f01790a.jpg" },
+      { code: "2314TC", name: "Tall Pillar Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/7b2b193a15.jpg" },
+      { code: "2314TK", name: "Tall Pillar Basin Tap", cat: "Basin Mixers & Taps", finish: "Black", img: "img/b74a1e6468.jpg" },
+
+      // Kitchen Mixers & Sink Taps
+      { code: "6001", name: "Gooseneck Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/b26b24543a.jpg" },
+      { code: "6001C", name: "Gooseneck Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/dc14c56ed7.jpg" },
+      { code: "6003", name: "Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/78f61e78b2.jpg" },
+      { code: "6003C", name: "Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/794c50b9da.jpg" },
+      { code: "6023", name: "Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/e5b5d75829.jpg" },
+      { code: "6023K", name: "Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/551fa91d13.jpg" },
+      { code: "6016C", name: "Pull-Out Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/2b49c084d7.jpg" },
+      { code: "6016K", name: "Pull-Out Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/ba95eaa4b1.jpg" },
+      { code: "6016H", name: "Pull-Out Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Grey", img: "img/f9cabe0c6e.jpg" },
+      { code: "6018K", name: "Chef Style Pull-Out Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/8a1609a7dd.jpg" },
+      { code: "6018H", name: "Kitchen Mixer (Pull-out)", cat: "Kitchen Mixers & Sink Taps", finish: "Grey", img: "img/7dbff1a916.jpg" },
+      { code: "6019C", name: "Commercial Spring Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/2a1898741a.jpg" },
+      { code: "6019K", name: "Commercial Spring Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/741cd6bef9.jpg" },
+      { code: "6020C", name: "Heavy Spring Pull-Down Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/1629e412e5.jpg" },
+      { code: "6020K", name: "Kitchen Mixer (Spring)", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/7c319b3d02.jpg" },
+      { code: "6021C", name: "Wall Mounted Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/e1476a4951.jpg" },
+      { code: "6022C", name: "Wall Mounted Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/2e44556436.jpg" },
+      { code: "W2006", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/cfb11918e7.jpg" },
+      { code: "W2001", name: "Swivel Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/7e73f853ee.jpg" },
+      { code: "W2001K", name: "Swivel Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/fbda2ba322.jpg" },
+      { code: "W2002", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/0b04b8a816.jpg" },
+      { code: "W2012C", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/d570364148.jpg" },
+      { code: "W2003", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/0719791e7a.jpg" },
+      { code: "W2004", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/02d61c192e.jpg" },
+      { code: "W2008", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/d144d77209.jpg" },
+      { code: "W2008K", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/f2ca5fcd0b.jpg" },
+      { code: "W2010C", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/4b24418760.jpg" },
+      { code: "W2013C", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/8359de47ca.jpg" },
+      { code: "W2014C", name: "Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/7b04b68cf8.jpg" },
+      { code: "W2005C", name: "Foldable Window Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/f4ceea92fa.jpg" },
+      { code: "W2005H", name: "Foldable Window Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Grey", img: "img/27605af01e.jpg" },
+      { code: "W2005K", name: "Foldable Window Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/f5f229ed47.jpg" },
+      { code: "W2005S", name: "Sink Tap (Foldable)", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/fa67772166.jpg" },
+
+      // Kitchen Sinks
+      { code: "6045", name: "Single Bowl Sink (60x45cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "60x45cm", img: "img/81fac2bff7.jpg" },
+      { code: "6045K", name: "Single Bowl Sink (60x45cm)", cat: "Kitchen Sinks", finish: "Black", size: "60x45cm", img: "img/8aae3d9eee.jpg" },
+      { code: "7843", name: "Double Bowl Sink (78x43cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "78x43cm", img: "img/ebe9869bef.jpg" },
+      { code: "7843K", name: "Double Bowl Sink (78x43cm)", cat: "Kitchen Sinks", finish: "Black", size: "78x43cm", img: "img/e4f9ba230c.jpg" },
+      { code: "7546-5K", name: "Waterfall 5-Key Piano Sink (75x46cm)", cat: "Kitchen Sinks", finish: "Black", size: "75x46cm", img: "img/9b0ff03f12.jpg" },
+      { code: "7546-4K", name: "Waterfall 4-Key Piano Sink (75x46cm)", cat: "Kitchen Sinks", finish: "Black", size: "75x46cm", img: "img/350efd0118.jpg" },
+      { code: "7546K", name: "Modern Single Sink (75x46cm)", cat: "Kitchen Sinks", finish: "Black", size: "75x46cm", img: "img/bd87fd1b32.jpg" },
+      { code: "5040LS", name: "Sink", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "50x40cm", img: "img/bbe2912939.jpg" },
+      { code: "7843LS", name: "Double Sink", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "78x43cm", img: "img/4c9482d999.jpg" },
+      { code: "7540LS", name: "Single Sink with Drainer (75x40cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "75x40cm", img: "img/667d651fa1.jpg" },
+      { code: "9643LS", name: "Sink with Drainer (96x43cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "96x43cm", img: "img/86096e155e.jpg" },
+      { code: "10050LS", name: "Large Sink with Drainer (100x50cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "100x50cm", img: "img/123c159a7b.jpg" },
+      { code: "12050-2LS", name: "Double Bowl Sink + Drainer (120x50cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "120x50cm", img: "img/8db629a75c.jpg" },
+      { code: "Sink waste-1", name: "Sink Waste (Single)", cat: "Kitchen Sinks", finish: "Grey", img: "img/9e671c9726.jpg" },
+      { code: "Sink waste-2", name: "Sink Waste (Double)", cat: "Kitchen Sinks", finish: "Grey", img: "img/2222bcecf6.jpg" },
+
+      // Shower Sets
+      { code: "8011", name: "Exposed Shower Column", cat: "Shower Sets", finish: "Brushed Nickel", img: "img/a39541aaf0.jpg" },
+      { code: "8011K", name: "Exposed Shower Column", cat: "Shower Sets", finish: "Black", img: "img/4e21627a15.jpg" },
+      { code: "8012C", name: "Exposed Shower Column", cat: "Shower Sets", finish: "Chrome", img: "img/4a3c1d5119.jpg" },
+      { code: "8015C", name: "Rain Shower System", cat: "Shower Sets", finish: "Chrome", img: "img/2a8b573320.jpg" },
+      { code: "8035C", name: "Shower Set", cat: "Shower Sets", finish: "Chrome", img: "img/e2bb8546f8.jpg" },
+      { code: "8018C", name: "Thermostatic Rain Shower", cat: "Shower Sets", finish: "Chrome", img: "img/3ca154e1f1.jpg" },
+      { code: "8018K", name: "Thermostatic Rain Shower", cat: "Shower Sets", finish: "Black", img: "img/1d06451584.jpg" },
+      { code: "8014H", name: "4-in-1 Piano Button Shower System", cat: "Shower Sets", finish: "Grey", img: "img/346374b7ab.jpg" },
+      { code: "8014K", name: "4-in-1 Piano Button Shower System", cat: "Shower Sets", finish: "Black", img: "img/9d76fe4e3c.jpg" },
+      { code: "8014H-2", name: "Shower Set, 4-in-1 Piano Button", cat: "Shower Sets", finish: "Grey", img: "img/f5b57833d4.jpg" },
+      { code: "8014K-2", name: "Shower Set, 4-in-1 Piano Button", cat: "Shower Sets", finish: "Black", img: "img/1023f8b90d.jpg" },
+      { code: "8016C", name: "4-in-1 Piano Button Shower Set", cat: "Shower Sets", finish: "Chrome", img: "img/a580369a7e.jpg" },
+      { code: "8016K", name: "4-in-1 Piano Button Shower Set", cat: "Shower Sets", finish: "Black", img: "img/44cfebd241.jpg" },
+      { code: "8016H", name: "4-in-1 Piano Button Shower Set", cat: "Shower Sets", finish: "Grey", img: "img/59155bc37e.jpg" },
+      { code: "8017C", name: "Shower Set, 4-in-1 Piano Button", cat: "Shower Sets", finish: "Chrome", img: "img/ba00fa64ca.jpg" },
+      { code: "8017K", name: "Shower Set, 4-in-1 Piano Button", cat: "Shower Sets", finish: "Black", img: "img/62a3a028ec.jpg" },
+      { code: "8017H", name: "Shower Set, 4-in-1 Piano Button", cat: "Shower Sets", finish: "Grey", img: "img/630b98a8a7.jpg" },
+      { code: "8021C", name: "Digital LED Piano Shower System", cat: "Shower Sets", finish: "Chrome", img: "img/32729dbc3b.jpg" },
+      { code: "8021K", name: "Digital LED Piano Shower System", cat: "Shower Sets", finish: "Black", img: "img/1b2bca48d0.jpg" },
+      { code: "8021H", name: "Digital LED Piano Shower System", cat: "Shower Sets", finish: "Grey", img: "img/5aaccadf4e.jpg" },
+      { code: "8033C", name: "Shower Set, 4-in-1 Piano Button, Digital Display & LED", cat: "Shower Sets", finish: "Chrome", img: "img/4d3ae176f0.jpg" },
+      { code: "8033K", name: "Digital Hydro-Powered LED Shower", cat: "Shower Sets", finish: "Black", img: "img/6c49824fbb.jpg" },
+      { code: "8033H", name: "Digital Hydro-Powered LED Shower", cat: "Shower Sets", finish: "Grey", img: "img/03c8ae61b4.jpg" },
+      { code: "8034C", name: "Piano Key Digital Rain Shower", cat: "Shower Sets", finish: "Chrome", img: "img/27d09a963f.jpg" },
+      { code: "8034K", name: "Piano Key Digital Rain Shower", cat: "Shower Sets", finish: "Black", img: "img/1979a8e5d3.jpg" },
+      { code: "8034H", name: "Piano Key Digital Rain Shower", cat: "Shower Sets", finish: "Grey", img: "img/5e71daa31e.jpg" },
+      { code: "8023H", name: "Shower Set, 4-in-1 Piano Button, Digital Display & LED", cat: "Shower Sets", finish: "Grey", img: "img/5cabbca40e.jpg" },
+      { code: "8031H", name: "Shower Set, 4-in-1 Piano Button, Digital Display & LED", cat: "Shower Sets", finish: "Grey", img: "img/c093a3e897.jpg" },
+
+      // Bath Mixers
+      { code: "8302", name: "Exposed Bath Tub Mixer", cat: "Bath Mixers", finish: "Brushed Nickel", img: "img/768853002c.jpg" },
+      { code: "8302K", name: "Exposed Bath Tub Mixer", cat: "Bath Mixers", finish: "Black", img: "img/327ea8f172.jpg" },
+      { code: "8303", name: "Bath Mixer", cat: "Bath Mixers", finish: "Brushed Nickel", img: "img/0595a6fab6.jpg" },
+      { code: "8304C", name: "Bath Mixer with Hand Shower", cat: "Bath Mixers", finish: "Chrome", img: "img/adacbe961c.jpg" },
+      { code: "8304H", name: "Bath Mixer with Hand Shower", cat: "Bath Mixers", finish: "Grey", img: "img/9ad942c33d.jpg" },
+      { code: "8304K", name: "Bath Mixer with Hand Shower", cat: "Bath Mixers", finish: "Black", img: "img/d6d0f1bb75.jpg" },
+      { code: "8301C", name: "Bath Mixer", cat: "Bath Mixers", finish: "Chrome", img: "img/24308c86e6.jpg" },
+      { code: "8301K", name: "Bath Mixer", cat: "Bath Mixers", finish: "Black", img: "img/64e8fa7fe3.jpg" },
+      { code: "8305C", name: "Bath Mixer with Sliding Rail", cat: "Bath Mixers", finish: "Chrome", img: "img/48b05ff3fc.jpg" },
+      { code: "8305H", name: "Bath Mixer With Sliding Bar", cat: "Bath Mixers", finish: "Grey", img: "img/8410de0c8a.jpg" },
+      { code: "8305K", name: "Bath Mixer With Sliding Bar", cat: "Bath Mixers", finish: "Black", img: "img/938bdff256.jpg" },
+      { code: "8306C", name: "3-in-1 Piano Digital LED Bath Mixer", cat: "Bath Mixers", finish: "Chrome", img: "img/fc167fa8ac.jpg" },
+      { code: "8306H", name: "3-in-1 Piano Digital LED Bath Mixer", cat: "Bath Mixers", finish: "Grey", img: "img/786c3d5233.jpg" },
+      { code: "8306K", name: "3-in-1 Piano Digital LED Bath Mixer", cat: "Bath Mixers", finish: "Black", img: "img/c90b8be009.jpg" },
+      { code: "8401C", name: "Freestanding Bath Mixer Tap", cat: "Bath Mixers", finish: "Chrome", img: "img/fe9473c1bb.jpg" },
+      { code: "8401K", name: "Freestanding Bath Mixer Tap", cat: "Bath Mixers", finish: "Black", img: "img/fe934f6aa9.jpg" },
+      { code: "8402C", name: "Standing Bath Spout & Shower", cat: "Bath Mixers", finish: "Chrome", img: "img/f9aeb1556f.jpg" },
+      { code: "8402K", name: "Standing Bath Spout & Shower", cat: "Bath Mixers", finish: "Black", img: "img/8123fbb9de.jpg" },
+
+      // Concealed Mixers
+      { code: "LL9011C", name: "Concealed Shower Valve Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/2582d66a28.jpg" },
+      { code: "LL9011K", name: "Concealed Shower Valve Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/a0723b0940.jpg" },
+      { code: "LL9014C", name: "Concealed Shower Mixer Set", cat: "Concealed Mixers", finish: "Chrome", img: "img/4eb3b33c46.jpg" },
+      { code: "LL9014K", name: "Concealed Shower Mixer Set", cat: "Concealed Mixers", finish: "Black", img: "img/19d4e64ee8.jpg" },
+      { code: "LL9012C", name: "Concealed Shower Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/2a0452dd77.jpg" },
+      { code: "LL9012K", name: "Concealed Shower Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/af68061eb8.jpg" },
+      { code: "LL9013-3C", name: "3-Way Concealed Diverter Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/f7be92dabc.jpg" },
+      { code: "LL9013-3H", name: "3-Way Concealed Diverter Mixer", cat: "Concealed Mixers", finish: "Grey", img: "img/c70b4c88bb.jpg" },
+      { code: "LL9013-3K", name: "3-Way Concealed Diverter Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/531b0efade.jpg" },
+      { code: "LL9017-3C", name: "Concealed Shower Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/54016ab4fb.jpg" },
+      { code: "LL9017-3K", name: "Concealed Shower Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/3c5da21a90.jpg" },
+      { code: "LL3004C", name: "Concealed Built-in Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/464163098a.jpg" },
+      { code: "LL3004H", name: "Concealed Built-in Mixer", cat: "Concealed Mixers", finish: "Grey", img: "img/ae3ea267b9.jpg" },
+      { code: "LL3004K", name: "Concealed Built-in Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/6887025150.jpg" },
+      { code: "LL3009C", name: "Wall-Mounted Concealed Basin Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/6bd96075e1.jpg" },
+      { code: "LL3009H", name: "Wall-Mounted Concealed Basin Mixer", cat: "Concealed Mixers", finish: "Grey", img: "img/a430640050.jpg" },
+      { code: "LL3009K", name: "Wall-Mounted Concealed Basin Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/f2e4c567cd.jpg" },
+
+      // Angle Valves & Filters
+      { code: "9015C", name: "Dual-Function Angle Valve 1/2\"", cat: "Angle Valves & Filters", finish: "Chrome", img: "img/6473a5dee4.jpg" },
+      { code: "9015K", name: "Dual-Function Angle Valve 1/2\"", cat: "Angle Valves & Filters", finish: "Black", img: "img/2daf2f77c4.jpg" },
+      { code: "9008", name: "Heavy Brass Angle Valve", cat: "Angle Valves & Filters", finish: "Brushed Nickel", img: "img/4b4d54b61b.jpg" },
+      { code: "9008K", name: "Heavy Brass Angle Valve", cat: "Angle Valves & Filters", finish: "Black", img: "img/0bc9a0a8cd.jpg" },
+      { code: "9012", name: "Angle Valve", cat: "Angle Valves & Filters", finish: "Brushed Nickel", img: "img/787cb61fc4.jpg" },
+      { code: "9013-1", name: "Angle Valve", cat: "Angle Valves & Filters", finish: "Brushed Nickel", img: "img/29c521de59.jpg" },
+      { code: "9013-2", name: "Angle Valve", cat: "Angle Valves & Filters", finish: "Brushed Nickel", img: "img/fd37f592cb.jpg" },
+      { code: "9017C", name: "Angle Valve", cat: "Angle Valves & Filters", finish: "Chrome", img: "img/1fb05504f1.jpg" },
+      { code: "9018C", name: "Angle Valve", cat: "Angle Valves & Filters", finish: "Chrome", img: "img/8643eab0cb.jpg" },
+      { code: "9005", name: "Long Extended Wall Bib Tap", cat: "Angle Valves & Filters", finish: "Brushed Nickel", img: "img/145a42e42d.jpg" },
+      { code: "9007", name: "Water Tap", cat: "Angle Valves & Filters", finish: "Brushed Nickel", img: "img/90eedbc0d5.jpg" },
+      { code: "9611C", name: "Single Water Tap", cat: "Angle Valves & Filters", finish: "Chrome", img: "img/0851c9f639.jpg" },
+      { code: "9611K", name: "Single Water Tap", cat: "Angle Valves & Filters", finish: "Black", img: "img/c579a90c5e.jpg" },
+      { code: "9612C", name: "Long Spout Water Tap", cat: "Angle Valves & Filters", finish: "Chrome", img: "img/b98050f0f2.jpg" },
+      { code: "9612K", name: "Long Spout Water Tap", cat: "Angle Valves & Filters", finish: "Black", img: "img/ded75e9307.jpg" },
+      { code: "WF13A/WF13B", name: "Single Water Filter Housing 3/4\" & 1\"", cat: "Angle Valves & Filters", finish: "Blue/Clear", size: "3/4\" / 1\"", img: "img/a1c122c05d.jpg" },
+      { code: "WF14A/WF14B", name: "Double Water Filter Housing Unit", cat: "Angle Valves & Filters", finish: "Standard", size: "3/4\" / 1\"", img: "img/cca1106136.jpg" },
+      { code: "PP100", name: "Sediment Polypropylene Filter Cartridge", cat: "Angle Valves & Filters", finish: "100g", size: "100g", img: "img/4bc20fa0e6.jpg" },
+      { code: "XR53", name: "Filter Cartridge", cat: "Angle Valves & Filters", finish: "", size: "150g", img: "img/6107108762.jpg" },
+      { code: "CTO10A", name: "Activated Carbon Block Filter Cartridge", cat: "Angle Valves & Filters", finish: "400g", size: "400g", img: "img/d048c76273.jpg" },
+      { code: "UDF10A", name: "Filter Cartridge", cat: "Angle Valves & Filters", finish: "", size: "400g", img: "img/dcaae13187.jpg" },
+
+      // Vanity Cabinets & Mirrors
+      { code: "4336-1", name: "Compact Vanity Cabinet (43x36cm)", cat: "Vanity Cabinets & Mirrors", finish: "Modern", size: "43x36cm", img: "img/1a496b1407.jpg" },
+      { code: "5037-1", name: "Wall-Hung Vanity (50x37cm)", cat: "Vanity Cabinets & Mirrors", finish: "Modern", size: "50x37cm", img: "img/9ce8edc6e9.jpg" },
+      { code: "5036-2", name: "Vanity Cabinet", cat: "Vanity Cabinets & Mirrors", finish: "", size: "50cm", img: "img/4475a16e6b.jpg" },
+      { code: "5036-4", name: "Vanity Cabinet", cat: "Vanity Cabinets & Mirrors", finish: "", size: "50cm", img: "img/44e5ef6003.jpg" },
+      { code: "603-60", name: "Bathroom Vanity Set (60cm & 80cm)", cat: "Vanity Cabinets & Mirrors", finish: "Wood Finish", size: "60cm & 80cm", img: "img/d8e17fa5a0.jpg" },
+      { code: "608-80", name: "Vanity Cabinet", cat: "Vanity Cabinets & Mirrors", finish: "", size: "60cm & 80cm", img: "img/e2a4b4deb4.jpg" },
+      { code: "2001-80", name: "Natural Sintered Stone Vanity (80cm)", cat: "Vanity Cabinets & Mirrors", finish: "Stone Grey", size: "80cm", img: "img/49f4b6cbbe.jpg" },
+      { code: "2001H-120", name: "Double Basin Master Vanity (120cm)", cat: "Vanity Cabinets & Mirrors", finish: "Sintered Top", size: "120cm", img: "img/6e976e4f54.jpg" },
+      { code: "LED8060", name: "Smart Tricolor LED Mirror (80x60cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "80x60cm", img: "img/d47528c6ff.jpg" },
+      { code: "LED5070", name: "Smart Tricolor LED Mirror (50x70cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "50x70cm", img: "img/61b7a9dc03.jpg" },
+      { code: "LED6060", name: "Round/Square Smart LED Mirror (60cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "60cm", img: "img/c0af5f45c8.jpg" },
+      { code: "PT5050W", name: "Framed Accent Mirror (50x50cm)", cat: "Vanity Cabinets & Mirrors", finish: "White", size: "50x50cm", img: "img/5b1ebdd406.jpg" },
+      { code: "PT5050K", name: "Framed Accent Mirror (50x50cm)", cat: "Vanity Cabinets & Mirrors", finish: "Black", size: "50x50cm", img: "img/413229c5a8.jpg" },
+
+      // Drainers & Hoses
+      { code: "T620/630/640/660-1", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Brushed", size: "20cm / 30cm / 40cm / 60cm", img: "img/154613aa12.jpg" },
+      { code: "T620/630/640/660-1K", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Black", size: "20cm / 30cm / 40cm / 60cm", img: "img/af81d41dcc.jpg" },
+      { code: "T620/630/640/660-3", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Brushed", size: "20cm / 30cm / 40cm / 60cm", img: "img/001e9422a6.jpg" },
+      { code: "T620/630/640/660-3K", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Black", size: "20cm / 30cm / 40cm / 60cm", img: "img/f427c30c38.jpg" },
+      { code: "T620/630/640/660-4", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Brushed", size: "20cm / 30cm / 40cm / 60cm", img: "img/1fca055a9d.jpg" },
+      { code: "T620/630/640/660-4K", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Black", size: "20cm / 30cm / 40cm / 60cm", img: "img/97154ce054.jpg" },
+      { code: "T620/630/640/660-5", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Brushed", size: "20cm / 30cm / 40cm / 60cm", img: "img/e868794460.jpg" },
+      { code: "T620/630/640/660-5K", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Black", size: "20cm / 30cm / 40cm / 60cm", img: "img/ea057a5ab9.jpg" },
+      { code: "525", name: "Anti-Odour Square Floor Drain", cat: "Drainers & Hoses", finish: "Chrome", img: "img/352fe40700.jpg" },
+      { code: "SLD1910/SLD1920", name: "PTFE Heavy Thread Seal Tape (10g/20g)", cat: "Drainers & Hoses", finish: "Standard", size: "10g / 20g", img: "img/b0314c474e.jpg" },
+      { code: "DHX15H", name: "Anti-Tangle Bidet Spring Hose", cat: "Drainers & Hoses", finish: "Grey", img: "img/c5e41d3e9c.jpg" },
+      { code: "DHX15K", name: "Anti-Tangle Bidet Spring Hose", cat: "Drainers & Hoses", finish: "Black", img: "img/98f362ee0b.jpg" },
+      { code: "PQA503C", name: "Pressurized Toilet Bidet Sprayer", cat: "Drainers & Hoses", finish: "Chrome", img: "img/cbd23d169a.jpg" },
+      { code: "PQA503H", name: "Pressurized Toilet Bidet Sprayer", cat: "Drainers & Hoses", finish: "Grey", img: "img/c8748f96d6.jpg" },
+      { code: "PQA503K", name: "Pressurized Toilet Bidet Sprayer", cat: "Drainers & Hoses", finish: "Black", img: "img/5a4d83e161.jpg" },
+      { code: "PQA501", name: "Shatoff Hand Sprayer Set", cat: "Drainers & Hoses", finish: "Brushed Nickel", img: "img/4bed2f7cd7.jpg" },
+      { code: "PQA501K", name: "Shatoff Hand Sprayer Set", cat: "Drainers & Hoses", finish: "Black", img: "img/8d995430c5.jpg" },
+      { code: "PQA505", name: "Shataff", cat: "Drainers & Hoses", finish: "White", img: "img/465479ca24.jpg" },
+      { code: "PQA506", name: "Shataff", cat: "Drainers & Hoses", finish: "Brushed Nickel", img: "img/60f11274a0.jpg" },
+      { code: "HS511C", name: "Multi-Mode Hand Shower Wand", cat: "Drainers & Hoses", finish: "Chrome", img: "img/3d03d7011b.jpg" },
+      { code: "HS511K", name: "Hand Shower Set", cat: "Drainers & Hoses", finish: "Black", img: "img/e43e092ac5.jpg" },
+      { code: "HS512C", name: "Hand Shower Set", cat: "Drainers & Hoses", finish: "Chrome", img: "img/96c7d56649.jpg" },
+      { code: "HS515C", name: "Hand Shower Set", cat: "Drainers & Hoses", finish: "Chrome", img: "img/2edf3f01ae.jpg" },
+      { code: "HS516K", name: "High-Pressure Hand Shower Wand", cat: "Drainers & Hoses", finish: "Black", img: "img/0c23088822.jpg" },
+      { code: "RC16C", name: "Shower Arm", cat: "Drainers & Hoses", finish: "Chrome", img: "img/dd1afb0658.jpg" },
+      { code: "RC16K", name: "Shower Arm", cat: "Drainers & Hoses", finish: "Black", img: "img/0b94dd8bac.jpg" },
+      { code: "RC30C", name: "Wall Shower Arm (30cm)", cat: "Drainers & Hoses", finish: "Chrome", img: "img/8bc3f8fa58.jpg" },
+      { code: "RC30K", name: "Wall Shower Arm (30cm)", cat: "Drainers & Hoses", finish: "Black", img: "img/b3d27220b5.jpg" },
+      { code: "D5006", name: "Rain Shower Head 8-Inch Square", cat: "Drainers & Hoses", finish: "Chrome", size: "8\"", img: "img/1b58acc662.jpg" },
+      { code: "D8006", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "8\"", img: "img/3b16585f96.jpg" },
+      { code: "D8005", name: "Rain Shower Head 8-Inch Round", cat: "Drainers & Hoses", finish: "Chrome", size: "8\"", img: "img/7d85a669d8.jpg" },
+      { code: "D5012", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "6\"", img: "img/3d50faedb4.jpg" },
+      { code: "D5013", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "6\"", img: "img/76f1ffb613.jpg" },
+      { code: "D5003", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "6\"", img: "img/1f73550fda.jpg" },
+      { code: "D5020", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "5\"", img: "img/06b8155177.jpg" },
+      { code: "D5008", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "4\"", img: "img/1cd02a51b3.jpg" },
+      { code: "D5028", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "4\"", img: "img/3f5ddcdde8.jpg" },
+      { code: "D5039", name: "Shower Head", cat: "Drainers & Hoses", finish: "Chrome", size: "4\"", img: "img/ae6d37aa6e.jpg" },
+      { code: "RG15C", name: "Anti-Twist Shower Flexible PVC Hose", cat: "Drainers & Hoses", finish: "Chrome", img: "img/c95c7f7af6.jpg" },
+      { code: "RG15K", name: "Anti-Twist Shower Flexible PVC Hose", cat: "Drainers & Hoses", finish: "Black", img: "img/4917387237.jpg" },
+      { code: "50A/60A/80A/100A", name: "Flexible Hose (Female)", cat: "Drainers & Hoses", finish: "Brushed Nickel", size: "50cm / 60cm / 80cm / 100cm", img: "img/26a2c7f985.jpg" },
+      { code: "50AP/60AP/80AP/100AP", name: "Flexible Hose (Female)", cat: "Drainers & Hoses", finish: "Black", size: "50cm / 60cm / 80cm / 100cm", img: "img/6c45b81fd6.jpg" },
+      { code: "FH60", name: "Hot & Cold Flexible Hose", cat: "Drainers & Hoses", finish: "", size: "60cm", img: "img/3e590f28a3.jpg" }
     ];
 
     let currentCategory = "All";
     let searchQuery = "";
-    let cart = {};
+    let quoteBasket = [];
 
     function initCategories() {
       const categories = ["All", ...new Set(CATALOGUE_DATA.map(item => item.cat))];
@@ -707,56 +1035,57 @@
       renderProducts();
     }
 
-    function updateCardQty(code, delta) {
-      if (!cart[code]) cart[code] = 0;
-      cart[code] = Math.max(0, cart[code] + delta);
-      if (cart[code] === 0) delete cart[code];
-      updateCartUI();
-      renderProducts();
-    }
-
     function renderProducts() {
       const grid = document.getElementById("productGrid");
+      const resultsCount = document.getElementById("resultsCount");
 
       const filtered = CATALOGUE_DATA.filter(item => {
         const matchesCategory = currentCategory === "All" || item.cat === currentCategory;
         const matchesQuery = !searchQuery || 
           item.name.toLowerCase().includes(searchQuery) ||
           item.code.toLowerCase().includes(searchQuery) ||
-          item.finish.toLowerCase().includes(searchQuery);
+          item.finish.toLowerCase().includes(searchQuery) ||
+          (item.size || '').toLowerCase().includes(searchQuery) ||
+          item.cat.toLowerCase().includes(searchQuery);
 
         return matchesCategory && matchesQuery;
       });
 
+      resultsCount.textContent = `Showing ${filtered.length} products`;
+
       if (filtered.length === 0) {
-        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">No products found matching "${searchQuery}".</div>`;
+        grid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+            No matching products found for "${searchQuery}".
+          </div>
+        `;
         return;
       }
 
       grid.innerHTML = filtered.map(item => {
-        const qty = cart[item.code] || 0;
+        const isAdded = quoteBasket.some(q => q.code === item.code);
         return `
           <div class="card">
-            <div class="card-img-wrap">
-              <img src="img/${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80'">
+            <div class="card-photo" onclick="openPhoto('${item.img}')">
+              <img src="${item.img}" alt="${item.code}" loading="lazy" decoding="async">
             </div>
             <div class="card-top">
               <span class="item-code">${item.code}</span>
-              <span class="finish-pill">${item.finish}</span>
+              ${item.finish ? `<span class="finish-pill">${item.finish}</span>` : ''}
             </div>
             <div class="card-body">
               <div>
                 <h3 class="item-title">${item.name}</h3>
+                ${extraSize(item) ? `<span class="size-pill">${extraSize(item)}</span>` : ''}
                 <p class="item-category">${item.cat}</p>
               </div>
               <div class="card-footer">
-                <div class="qty-control">
-                  <button class="qty-btn" onclick="updateCardQty('${item.code}', -1)">-</button>
-                  <span class="qty-val">${qty}</span>
-                  <button class="qty-btn" onclick="updateCardQty('${item.code}', 1)">+</button>
-                </div>
-                <button class="add-cart-btn" onclick="updateCardQty('${item.code}', 1)">
-                  ${qty > 0 ? `✓ Added (${qty})` : '+ Add'}
+                <button 
+                  class="quote-action-btn" 
+                  onclick="toggleQuoteItem('${item.code}')"
+                  style="${isAdded ? 'background: var(--accent); color: #fff; border-color: var(--accent);' : ''}"
+                >
+                  ${isAdded ? '✓ Added to Quote' : '+ Add to Quote'}
                 </button>
               </div>
             </div>
@@ -765,40 +1094,44 @@
       }).join('');
     }
 
-    function updateCartUI() {
-      const badge = document.getElementById('badgeCount');
-      const totalUnits = Object.values(cart).reduce((a, b) => a + b, 0);
-      badge.textContent = totalUnits;
-      
-      badge.classList.remove('badge-bounce');
-      void badge.offsetWidth;
-      badge.classList.add('badge-bounce');
+    function toggleQuoteItem(code) {
+      const product = CATALOGUE_DATA.find(p => p.code === code);
+      const index = quoteBasket.findIndex(q => q.code === code);
 
-      document.getElementById('drawerTotalQty').textContent = `${totalUnits} units`;
+      if (index > -1) {
+        quoteBasket.splice(index, 1);
+      } else if (product) {
+        quoteBasket.push(product);
+      }
+
+      updateBasketUI();
+      renderProducts();
+    }
+
+    function updateBasketUI() {
+      const badge = document.getElementById('badgeCount');
+      badge.textContent = quoteBasket.length;
 
       const container = document.getElementById('drawerContent');
-      const entries = Object.entries(cart);
-
-      if (entries.length === 0) {
-        container.innerHTML = `<div class="empty-state">Your basket is empty. Select products and quantities to prepare an instant WhatsApp order.</div>`;
+      if (quoteBasket.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">No products added yet. Browse the catalogue and click "+ Add to Quote" to build an itemized Bill of Quantities.</div>
+        `;
         return;
       }
 
-      container.innerHTML = entries.map(([code, qty]) => {
-        const prod = CATALOGUE_DATA.find(p => p.code === code);
-        return `
-          <div class="drawer-item">
+      container.innerHTML = quoteBasket.map(item => `
+        <div class="drawer-item">
+          <div class="drawer-item-main">
+            <img class="drawer-thumb" src="${item.img}" alt="">
             <div class="drawer-item-info">
-              <h4>${prod.name}</h4>
-              <span>${prod.code} • ${prod.finish}</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-weight: 800; font-size: 0.9rem;">Qty: ${qty}</span>
-              <button style="background: transparent; border: none; color: #ff5252; cursor: pointer;" onclick="updateCardQty('${code}', -${qty})">✕</button>
+              <h4>${item.name}</h4>
+              <span>${[item.code, item.finish, extraSize(item)].filter(Boolean).join(' • ')}</span>
             </div>
           </div>
-        `;
-      }).join('');
+          <button class="remove-btn" onclick="toggleQuoteItem('${item.code}')">Remove</button>
+        </div>
+      `).join('');
     }
 
     function toggleDrawer() {
@@ -807,28 +1140,40 @@
     }
 
     function sendWhatsappQuote() {
-      const entries = Object.entries(cart);
-      if (entries.length === 0) {
-        alert("Please add at least one item to your quote list.");
+      if (quoteBasket.length === 0) {
+        alert("Please add at least one product to your quote list first.");
         return;
       }
 
-      let text = "Hello Ottoman Water Solutions, I would like to place an order / request an official quotation for:\n\n";
-      entries.forEach(([code, qty], i) => {
-        const prod = CATALOGUE_DATA.find(p => p.code === code);
-        text += `${i + 1}. [${prod.code}] ${prod.name} (${prod.finish}) - Quantity: ${qty} pcs\n`;
+      let text = "Hello Ottoman Water Solutions, I would like to request an official quotation/BOQ for the following products from your catalogue:\n\n";
+      quoteBasket.forEach((item, i) => {
+        const details = [item.finish, extraSize(item)].filter(Boolean).join(', ');
+        text += `${i + 1}. [${item.code}] ${item.name}${details ? ` (${details})` : ''}\n`;
       });
-      text += "\nPlease confirm availability, pricing, and delivery options in Nairobi.";
+      text += "\nPlease advise on price and availability in Nairobi.";
 
-      // Replace 254700000000 with your business number
       const url = `https://wa.me/254112406467?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
     }
 
+    function extraSize(item) {
+      return item.size && !item.name.toLowerCase().includes(item.size.toLowerCase()) ? item.size : '';
+    }
+
+    function openPhoto(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closePhoto() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePhoto(); });
+
+    // Initialize
     initCategories();
     renderProducts();
   </script>
 </body>
 </html>
-
-
