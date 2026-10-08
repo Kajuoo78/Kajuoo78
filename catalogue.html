@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Catalogue | Ottoman Construction & Water Solutions</title>
+  <title>Product Catalogue & Order | Ottoman Construction & Water Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0a0809;
-      --bg-card: rgba(22, 16, 18, 0.75);
-      --bg-card-hover: rgba(36, 24, 28, 0.85);
+      --bg-card: rgba(22, 16, 18, 0.78);
+      --bg-card-hover: rgba(36, 24, 28, 0.88);
       --wine: #721625;
       --crimson: #9e1b32;
       --accent: #e23b53;
-      --accent-glow: rgba(226, 59, 83, 0.25);
+      --accent-glow: rgba(226, 59, 83, 0.28);
+      --wa-green: #25D366;
+      --wa-glow: rgba(37, 211, 102, 0.35);
       --text-main: #f5f5f7;
       --text-muted: #a39ea2;
       --border: rgba(255, 255, 255, 0.08);
@@ -71,8 +73,8 @@
     }
 
     .brand-icon {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 9px;
       background: linear-gradient(135deg, var(--crimson), var(--wine));
       display: flex;
@@ -124,7 +126,7 @@
       background: rgba(226, 59, 83, 0.15);
       border: 1px solid var(--accent);
       color: #fff;
-      padding: 7px 14px;
+      padding: 7px 16px;
       border-radius: 20px;
       font-size: 0.82rem;
       font-weight: 600;
@@ -144,13 +146,14 @@
       background: #fff;
       color: var(--wine);
       border-radius: 50%;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 800;
+      transition: transform 0.2s ease;
     }
 
     .hero {
@@ -264,9 +267,6 @@
       white-space: nowrap;
       cursor: pointer;
       transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .cat-btn:hover {
@@ -323,11 +323,11 @@
 
     .card-photo {
       aspect-ratio: 1 / 1;
-      background: #fff;
+      background: #110d0f;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px;
+      padding: 10px;
       cursor: zoom-in;
     }
 
@@ -335,6 +335,7 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      border-radius: 8px;
     }
 
     .size-pill {
@@ -348,43 +349,8 @@
       margin-bottom: 10px;
     }
 
-    .drawer-thumb {
-      width: 46px;
-      height: 46px;
-      object-fit: contain;
-      background: #fff;
-      border-radius: 6px;
-      margin-right: 12px;
-      flex-shrink: 0;
-    }
-
-    .drawer-item-main { display: flex; align-items: center; min-width: 0; }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 300;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      cursor: zoom-out;
-    }
-
-    .lightbox.active { display: flex; }
-
-    .lightbox img {
-      max-width: min(640px, 100%);
-      max-height: 85vh;
-      background: #fff;
-      border-radius: 12px;
-      padding: 10px;
-      object-fit: contain;
-    }
-
     .card-top {
-      padding: 16px 16px 8px;
+      padding: 14px 16px 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -437,41 +403,94 @@
     .card-footer {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 12px;
       margin-top: auto;
     }
 
-    .quote-action-btn {
-      width: 100%;
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
-      color: var(--text-main);
-      padding: 8px 12px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      width: 28px;
+      height: 32px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .qty-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .qty-val {
+      font-size: 0.85rem;
+      font-weight: 700;
+      width: 24px;
+      text-align: center;
+    }
+
+    .add-cart-btn {
+      flex: 1;
+      background: rgba(226, 59, 83, 0.15);
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 8px 10px;
       border-radius: 8px;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
     }
 
-    .quote-action-btn:hover {
-      background: var(--crimson);
-      border-color: var(--accent);
-      color: #fff;
+    .add-cart-btn:hover {
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(640px, 100%);
+      max-height: 85vh;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      object-fit: contain;
     }
 
     .drawer-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(5px);
       z-index: 200;
@@ -487,11 +506,9 @@
 
     .drawer {
       position: fixed;
-      right: 0;
-      top: 0;
-      bottom: 0;
+      right: 0; top: 0; bottom: 0;
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       background: #110d0f;
       border-left: 1px solid var(--border);
       z-index: 201;
@@ -546,6 +563,22 @@
       border-radius: 8px;
     }
 
+    .drawer-thumb {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      background: #1a1417;
+      border-radius: 6px;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .drawer-item-main {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
     .drawer-item-info h4 {
       font-size: 0.85rem;
       font-weight: 600;
@@ -557,27 +590,54 @@
       font-family: monospace;
     }
 
-    .remove-btn {
-      background: transparent;
-      border: none;
-      color: #ff5252;
-      font-size: 0.8rem;
-      cursor: pointer;
-      padding: 4px 6px;
+    .drawer-form {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drawer-form h4 {
+      font-size: 0.85rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #181114;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      color: #fff;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent);
     }
 
     .drawer-footer {
-      padding: 20px;
+      padding: 18px 20px;
       border-top: 1px solid var(--border);
-      background: rgba(10, 8, 9, 0.9);
+      background: rgba(10, 8, 9, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .whatsapp-send-btn {
       width: 100%;
-      background: #25d366;
-      color: #000;
+      background: var(--wa-green);
+      color: #ffffff;
       border: none;
-      padding: 12px;
+      padding: 14px 18px;
       border-radius: 10px;
       font-weight: 700;
       font-size: 0.95rem;
@@ -585,12 +645,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px var(--wa-glow);
     }
 
     .whatsapp-send-btn:hover {
-      background: #1eb956;
+      background: #20ba5a;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
     }
 
     .empty-state {
@@ -623,7 +696,7 @@
       <div class="header-actions">
         <a href="index.html" class="home-link">Home</a>
         <button class="boq-btn" onclick="toggleDrawer()">
-          <span>Quote List</span>
+          <span>Cart & Delivery</span>
           <span class="badge-count" id="badgeCount">0</span>
         </button>
       </div>
@@ -631,9 +704,9 @@
   </header>
 
   <section class="hero">
-    <div class="hero-badge">Official Catalog Range</div>
+    <div class="hero-badge">Direct Contractor & Home Delivery</div>
     <h1>Ottoman Construction & <span>Water Solutions</span></h1>
-    <p>Sanitary ware, precision taps, multi-function showers, sinks & drainage systems.</p>
+    <p>Sanitary ware, precision taps, multi-function showers, sinks & drainage systems delivered to your site.</p>
   </section>
 
   <div class="controls-wrapper">
@@ -653,25 +726,39 @@
 
   <div class="status-bar">
     <div id="resultsCount">Loading products...</div>
-    <div>Nairobi, Kenya</div>
+    <div>Nairobi & Countrywide Delivery</div>
   </div>
 
   <main class="products-grid" id="productGrid"></main>
 
   <div class="lightbox" id="lightbox" onclick="closePhoto()"><img id="lightboxImg" alt=""></div>
 
+  <!-- Cart & Delivery Drawer -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
   <div class="drawer" id="drawer">
     <div class="drawer-header">
-      <h3>Quotation Inquiry Basket</h3>
+      <h3>Your Cart & Delivery Order</h3>
       <button class="close-btn" onclick="toggleDrawer()">✕</button>
     </div>
     <div class="drawer-content" id="drawerContent">
-      <div class="empty-state">No products added yet. Browse the catalogue and click "+ Quote List" to build an instant bill of quantities.</div>
+      <div class="empty-state">No products added yet. Select products and quantities to prepare an instant delivery order.</div>
     </div>
-    <div class="drawer-footer">
-      <button class="whatsapp-send-btn" onclick="sendWhatsappQuote()">
-        <span>💬 Send via WhatsApp</span>
+
+    <div class="drawer-footer" id="drawerFooter" style="display: none;">
+      <!-- Customer Delivery Details Form -->
+      <div class="drawer-form">
+        <h4>Delivery Information</h4>
+        <input type="text" id="custName" class="form-input" placeholder="Your Full Name">
+        <input type="tel" id="custPhone" class="form-input" placeholder="Phone Number (e.g. 0712 345 678)">
+        <input type="text" id="custLocation" class="form-input" placeholder="Delivery Location / Site (e.g. Runda, Westlands)">
+      </div>
+
+      <!-- Official WhatsApp SVG Checkout Button -->
+      <button class="whatsapp-send-btn" onclick="sendDeliveryOrder()">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.34 16.41C4.55 15.15 4.13 13.69 4.13 11.91C4.13 7.37 7.84 3.67 12.05 3.67ZM8.73 7.33C8.56 7.33 8.28 7.39 8.05 7.64C7.81 7.9 7.15 8.52 7.15 9.79C7.15 11.06 8.08 12.28 8.2 12.45C8.33 12.62 10.02 15.23 12.61 16.34C13.23 16.61 13.71 16.76 14.09 16.88C14.71 17.08 15.27 17.05 15.72 16.98C16.22 16.91 17.25 16.36 17.47 15.75C17.68 15.13 17.68 14.61 17.62 14.5C17.56 14.39 17.39 14.33 17.14 14.2C16.89 14.07 15.65 13.46 15.42 13.38C15.19 13.29 15.02 13.25 14.85 13.51C14.68 13.77 14.2 14.33 14.05 14.5C13.9 14.67 13.76 14.69 13.51 14.57C13.26 14.44 12.46 14.18 11.51 13.33C10.77 12.67 10.27 11.85 10.13 11.6C9.98 11.35 10.11 11.21 10.24 11.09C10.35 10.98 10.49 10.79 10.62 10.65C10.74 10.5 10.79 10.39 10.87 10.22C10.95 10.05 10.91 9.9 10.85 9.78C10.79 9.65 10.31 8.46 10.1 7.97C9.9 7.48 9.7 7.55 9.55 7.54C9.4 7.53 9.24 7.53 9.07 7.53L8.73 7.33Z"/>
+        </svg>
+        <span>Submit Order & Request Delivery</span>
       </button>
     </div>
   </div>
@@ -737,6 +824,7 @@
       { code: "TX35BK", name: "Soap Dispenser", cat: "Bathroom Accessories", finish: "Black", size: "1000ml", img: "img/b1564ca266.jpg" },
       { code: "TX35W", name: "Soap Dispenser", cat: "Bathroom Accessories", finish: "White", size: "1000ml", img: "img/6007adbfe5.jpg" },
       { code: "HD113", name: "Automatic Hand Dryer", cat: "Bathroom Accessories", finish: "White", img: "img/a937a3cc4b.jpg" },
+
       // Basin Mixers & Taps
       { code: "3011C", name: "Basin Mixer Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/33419d71ee.jpg" },
       { code: "3002C", name: "Basin Mixer Modern", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/2e52e3359f.jpg" },
@@ -781,6 +869,7 @@
       { code: "2314K", name: "Basin Tap", cat: "Basin Mixers & Taps", finish: "Black", img: "img/a57f01790a.jpg" },
       { code: "2314TC", name: "Tall Pillar Basin Tap", cat: "Basin Mixers & Taps", finish: "Chrome", img: "img/7b2b193a15.jpg" },
       { code: "2314TK", name: "Tall Pillar Basin Tap", cat: "Basin Mixers & Taps", finish: "Black", img: "img/b74a1e6468.jpg" },
+
       // Kitchen Mixers & Sink Taps
       { code: "6001", name: "Gooseneck Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/b26b24543a.jpg" },
       { code: "6001C", name: "Gooseneck Kitchen Mixer", cat: "Kitchen Mixers & Sink Taps", finish: "Chrome", img: "img/dc14c56ed7.jpg" },
@@ -815,6 +904,7 @@
       { code: "W2005H", name: "Foldable Window Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Grey", img: "img/27605af01e.jpg" },
       { code: "W2005K", name: "Foldable Window Sink Tap", cat: "Kitchen Mixers & Sink Taps", finish: "Black", img: "img/f5f229ed47.jpg" },
       { code: "W2005S", name: "Sink Tap (Foldable)", cat: "Kitchen Mixers & Sink Taps", finish: "Brushed Nickel", img: "img/fa67772166.jpg" },
+
       // Kitchen Sinks
       { code: "6045", name: "Single Bowl Sink (60x45cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "60x45cm", img: "img/81fac2bff7.jpg" },
       { code: "6045K", name: "Single Bowl Sink (60x45cm)", cat: "Kitchen Sinks", finish: "Black", size: "60x45cm", img: "img/8aae3d9eee.jpg" },
@@ -831,6 +921,7 @@
       { code: "12050-2LS", name: "Double Bowl Sink + Drainer (120x50cm)", cat: "Kitchen Sinks", finish: "Brushed Nickel", size: "120x50cm", img: "img/8db629a75c.jpg" },
       { code: "Sink waste-1", name: "Sink Waste (Single)", cat: "Kitchen Sinks", finish: "Grey", img: "img/9e671c9726.jpg" },
       { code: "Sink waste-2", name: "Sink Waste (Double)", cat: "Kitchen Sinks", finish: "Grey", img: "img/2222bcecf6.jpg" },
+
       // Shower Sets
       { code: "8011", name: "Exposed Shower Column", cat: "Shower Sets", finish: "Brushed Nickel", img: "img/a39541aaf0.jpg" },
       { code: "8011K", name: "Exposed Shower Column", cat: "Shower Sets", finish: "Black", img: "img/4e21627a15.jpg" },
@@ -860,6 +951,7 @@
       { code: "8034H", name: "Piano Key Digital Rain Shower", cat: "Shower Sets", finish: "Grey", img: "img/5e71daa31e.jpg" },
       { code: "8023H", name: "Shower Set, 4-in-1 Piano Button, Digital Display & LED", cat: "Shower Sets", finish: "Grey", img: "img/5cabbca40e.jpg" },
       { code: "8031H", name: "Shower Set, 4-in-1 Piano Button, Digital Display & LED", cat: "Shower Sets", finish: "Grey", img: "img/c093a3e897.jpg" },
+
       // Bath Mixers
       { code: "8302", name: "Exposed Bath Tub Mixer", cat: "Bath Mixers", finish: "Brushed Nickel", img: "img/768853002c.jpg" },
       { code: "8302K", name: "Exposed Bath Tub Mixer", cat: "Bath Mixers", finish: "Black", img: "img/327ea8f172.jpg" },
@@ -879,6 +971,7 @@
       { code: "8401K", name: "Freestanding Bath Mixer Tap", cat: "Bath Mixers", finish: "Black", img: "img/fe934f6aa9.jpg" },
       { code: "8402C", name: "Standing Bath Spout & Shower", cat: "Bath Mixers", finish: "Chrome", img: "img/f9aeb1556f.jpg" },
       { code: "8402K", name: "Standing Bath Spout & Shower", cat: "Bath Mixers", finish: "Black", img: "img/8123fbb9de.jpg" },
+
       // Concealed Mixers
       { code: "LL9011C", name: "Concealed Shower Valve Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/2582d66a28.jpg" },
       { code: "LL9011K", name: "Concealed Shower Valve Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/a0723b0940.jpg" },
@@ -897,6 +990,7 @@
       { code: "LL3009C", name: "Wall-Mounted Concealed Basin Mixer", cat: "Concealed Mixers", finish: "Chrome", img: "img/6bd96075e1.jpg" },
       { code: "LL3009H", name: "Wall-Mounted Concealed Basin Mixer", cat: "Concealed Mixers", finish: "Grey", img: "img/a430640050.jpg" },
       { code: "LL3009K", name: "Wall-Mounted Concealed Basin Mixer", cat: "Concealed Mixers", finish: "Black", img: "img/f2e4c567cd.jpg" },
+
       // Angle Valves & Filters
       { code: "9015C", name: "Dual-Function Angle Valve 1/2\"", cat: "Angle Valves & Filters", finish: "Chrome", img: "img/6473a5dee4.jpg" },
       { code: "9015K", name: "Dual-Function Angle Valve 1/2\"", cat: "Angle Valves & Filters", finish: "Black", img: "img/2daf2f77c4.jpg" },
@@ -919,6 +1013,7 @@
       { code: "XR53", name: "Filter Cartridge", cat: "Angle Valves & Filters", finish: "", size: "150g", img: "img/6107108762.jpg" },
       { code: "CTO10A", name: "Activated Carbon Block Filter Cartridge", cat: "Angle Valves & Filters", finish: "400g", size: "400g", img: "img/d048c76273.jpg" },
       { code: "UDF10A", name: "Filter Cartridge", cat: "Angle Valves & Filters", finish: "", size: "400g", img: "img/dcaae13187.jpg" },
+
       // Vanity Cabinets & Mirrors
       { code: "4336-1", name: "Compact Vanity Cabinet (43x36cm)", cat: "Vanity Cabinets & Mirrors", finish: "Modern", size: "43x36cm", img: "img/1a496b1407.jpg" },
       { code: "5037-1", name: "Wall-Hung Vanity (50x37cm)", cat: "Vanity Cabinets & Mirrors", finish: "Modern", size: "50x37cm", img: "img/9ce8edc6e9.jpg" },
@@ -930,9 +1025,10 @@
       { code: "2001H-120", name: "Double Basin Master Vanity (120cm)", cat: "Vanity Cabinets & Mirrors", finish: "Sintered Top", size: "120cm", img: "img/6e976e4f54.jpg" },
       { code: "LED8060", name: "Smart Tricolor LED Mirror (80x60cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "80x60cm", img: "img/d47528c6ff.jpg" },
       { code: "LED5070", name: "Smart Tricolor LED Mirror (50x70cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "50x70cm", img: "img/61b7a9dc03.jpg" },
-      { code: "LED6060", name: "Round/Square Smart LED Mirror (60cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "60x60cm", img: "img/c0af5f45c8.jpg" },
+      { code: "LED6060", name: "Round/Square Smart LED Mirror (60cm)", cat: "Vanity Cabinets & Mirrors", finish: "Tricolor LED", size: "60cm", img: "img/c0af5f45c8.jpg" },
       { code: "PT5050W", name: "Framed Accent Mirror (50x50cm)", cat: "Vanity Cabinets & Mirrors", finish: "White", size: "50x50cm", img: "img/5b1ebdd406.jpg" },
       { code: "PT5050K", name: "Framed Accent Mirror (50x50cm)", cat: "Vanity Cabinets & Mirrors", finish: "Black", size: "50x50cm", img: "img/413229c5a8.jpg" },
+
       // Drainers & Hoses
       { code: "T620/630/640/660-1", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Brushed", size: "20cm / 30cm / 40cm / 60cm", img: "img/154613aa12.jpg" },
       { code: "T620/630/640/660-1K", name: "Floor Drainer", cat: "Drainers & Hoses", finish: "Black", size: "20cm / 30cm / 40cm / 60cm", img: "img/af81d41dcc.jpg" },
@@ -981,7 +1077,7 @@
 
     let currentCategory = "All";
     let searchQuery = "";
-    let quoteBasket = [];
+    let cart = {};
 
     function initCategories() {
       const categories = ["All", ...new Set(CATALOGUE_DATA.map(item => item.cat))];
@@ -1002,6 +1098,14 @@
 
     function handleSearch() {
       searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      renderProducts();
+    }
+
+    function updateCardQty(code, delta) {
+      if (!cart[code]) cart[code] = 0;
+      cart[code] = Math.max(0, cart[code] + delta);
+      if (cart[code] === 0) delete cart[code];
+      updateCartUI();
       renderProducts();
     }
 
@@ -1033,7 +1137,7 @@
       }
 
       grid.innerHTML = filtered.map(item => {
-        const isAdded = quoteBasket.some(q => q.code === item.code);
+        const qty = cart[item.code] || 0;
         return `
           <div class="card">
             <div class="card-photo" onclick="openPhoto('${item.img}')">
@@ -1050,12 +1154,17 @@
                 <p class="item-category">${item.cat}</p>
               </div>
               <div class="card-footer">
+                <div class="qty-control">
+                  <button class="qty-btn" onclick="updateCardQty('${item.code}', -1)">-</button>
+                  <span class="qty-val">${qty}</span>
+                  <button class="qty-btn" onclick="updateCardQty('${item.code}', 1)">+</button>
+                </div>
                 <button 
-                  class="quote-action-btn" 
-                  onclick="toggleQuoteItem('${item.code}')"
-                  style="${isAdded ? 'background: var(--accent); color: #fff; border-color: var(--accent);' : ''}"
+                  class="add-cart-btn" 
+                  onclick="updateCardQty('${item.code}', 1)"
+                  style="${qty > 0 ? 'background: var(--accent);' : ''}"
                 >
-                  ${isAdded ? '✓ Added to Quote' : '+ Add to Quote'}
+                  ${qty > 0 ? `✓ In Cart (${qty})` : '+ Add to Cart'}
                 </button>
               </div>
             </div>
@@ -1064,44 +1173,42 @@
       }).join('');
     }
 
-    function toggleQuoteItem(code) {
-      const product = CATALOGUE_DATA.find(p => p.code === code);
-      const index = quoteBasket.findIndex(q => q.code === code);
-
-      if (index > -1) {
-        quoteBasket.splice(index, 1);
-      } else if (product) {
-        quoteBasket.push(product);
-      }
-
-      updateBasketUI();
-      renderProducts();
-    }
-
-    function updateBasketUI() {
+    function updateCartUI() {
       const badge = document.getElementById('badgeCount');
-      badge.textContent = quoteBasket.length;
+      const totalUnits = Object.values(cart).reduce((a, b) => a + b, 0);
+      badge.textContent = totalUnits;
 
       const container = document.getElementById('drawerContent');
-      if (quoteBasket.length === 0) {
+      const footer = document.getElementById('drawerFooter');
+      const entries = Object.entries(cart);
+
+      if (entries.length === 0) {
         container.innerHTML = `
-          <div class="empty-state">No products added yet. Browse the catalogue and click "+ Add to Quote" to build an itemized Bill of Quantities.</div>
+          <div class="empty-state">No products added yet. Select products and quantities to prepare an instant delivery order.</div>
         `;
+        footer.style.display = 'none';
         return;
       }
 
-      container.innerHTML = quoteBasket.map(item => `
-        <div class="drawer-item">
-          <div class="drawer-item-main">
-            <img class="drawer-thumb" src="${item.img}" alt="">
-            <div class="drawer-item-info">
-              <h4>${item.name}</h4>
-              <span>${[item.code, item.finish, extraSize(item)].filter(Boolean).join(' • ')}</span>
+      footer.style.display = 'flex';
+      container.innerHTML = entries.map(([code, qty]) => {
+        const item = CATALOGUE_DATA.find(p => p.code === code);
+        return `
+          <div class="drawer-item">
+            <div class="drawer-item-main">
+              <img class="drawer-thumb" src="${item.img}" alt="">
+              <div class="drawer-item-info">
+                <h4>${item.name}</h4>
+                <span>[${item.code}] • Qty: <b>${qty}</b></span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="qty-btn" style="color: #ff5252; font-size: 1.1rem;" onclick="updateCardQty('${code}', -1)">−</button>
+              <button class="qty-btn" style="color: #25D366; font-size: 1.1rem;" onclick="updateCardQty('${code}', 1)">+</button>
             </div>
           </div>
-          <button class="remove-btn" onclick="toggleQuoteItem('${item.code}')">Remove</button>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     function toggleDrawer() {
@@ -1109,18 +1216,36 @@
       document.getElementById('drawerOverlay').classList.toggle('active');
     }
 
-    function sendWhatsappQuote() {
-      if (quoteBasket.length === 0) {
-        alert("Please add at least one product to your quote list first.");
+    function sendDeliveryOrder() {
+      const entries = Object.entries(cart);
+      if (entries.length === 0) {
+        alert("Please add at least one product to your cart first.");
         return;
       }
 
-      let text = "Hello Ottoman Water Solutions, I would like to request an official quotation/BOQ for the following products from your catalogue:\n\n";
-      quoteBasket.forEach((item, i) => {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const location = document.getElementById('custLocation').value.trim();
+
+      if (!location) {
+        alert("Please specify your delivery location or site so we can arrange transport.");
+        document.getElementById('custLocation').focus();
+        return;
+      }
+
+      let text = "📦 *NEW ORDER & DELIVERY REQUEST - OTTOMAN WATER SOLUTIONS*\n\n";
+      text += `👤 *Client Name:* ${name || "Contractor/Client"}\n`;
+      text += `📞 *Phone:* ${phone || "Not provided"}\n`;
+      text += `📍 *Delivery Location / Site:* ${location}\n\n`;
+      text += "*ORDERED ITEMS:*\n";
+
+      entries.forEach(([code, qty], i) => {
+        const item = CATALOGUE_DATA.find(p => p.code === code);
         const details = [item.finish, extraSize(item)].filter(Boolean).join(', ');
-        text += `${i + 1}. [${item.code}] ${item.name}${details ? ` (${details})` : ''}\n`;
+        text += `${i + 1}. [${item.code}] ${item.name}${details ? ` (${details})` : ''} - *${qty} pcs*\n`;
       });
-      text += "\nPlease advise on price and availability in Nairobi.";
+
+      text += "\nPlease confirm total price, delivery timeline, and M-Pesa payment details.";
 
       const url = `https://wa.me/254112406467?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
