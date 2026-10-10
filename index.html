@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
     <title>Ottoman Water Solutions | Plumbing & Construction</title>
@@ -47,7 +50,9 @@
         /* MENU: glass top bar + hamburger + translucent overlay */
         .topbar{position:fixed;top:0;left:0;right:0;z-index:1100;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;pointer-events:none}
         .topbar>*{pointer-events:auto}
-        .logo{color:#fff;text-decoration:none;font-family:'Bricolage Grotesque','Montserrat',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;padding:10px 18px;border-radius:40px;background:rgba(1,22,18,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16)}
+        .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:'Bricolage Grotesque','Montserrat',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;padding:6px 18px 6px 6px;border-radius:40px;background:rgba(1,22,18,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16)}
+        .logo img{display:block;border-radius:12px}
+        .hero-logo{display:block;width:clamp(130px,34vw,190px);height:auto;margin:0 auto 6px;border-radius:30px;box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.14),0 0 60px rgba(40,160,255,.25)}
         .burger{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(1,22,18,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);cursor:pointer;display:grid;place-content:center;gap:6px;padding:0;transition:background .3s}
         .burger:hover{background:rgba(0,255,255,.18)}
         .burger span{display:block;width:24px;height:2.5px;border-radius:3px;background:#fff;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .2s,width .3s}
@@ -310,7 +315,7 @@
     <script>document.documentElement.classList.add('js');</script>
 
     <header class="topbar">
-        <a class="logo" href="#home">Ottoman</a>
+        <a class="logo" href="#home" aria-label="Ottoman home"><img src="logo.png" alt="" width="38" height="38"><span>Ottoman</span></a>
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </header>
     <nav class="menu" id="menu" aria-label="Main menu">
@@ -328,6 +333,7 @@
     </nav>
 
     <section id="home" class="hero">
+        <img class="hero-logo" src="logo.png" alt="Ottoman Water Solutions logo" width="190" height="190">
         <span class="eyebrow">Nairobi &middot; Delivery countrywide</span>
         <h1 aria-label="Ottoman"><span aria-hidden="true" style="animation-delay:0ms">O</span><span aria-hidden="true" style="animation-delay:70ms">t</span><span aria-hidden="true" style="animation-delay:140ms">t</span><span aria-hidden="true" style="animation-delay:210ms">o</span><span aria-hidden="true" style="animation-delay:280ms">m</span><span aria-hidden="true" style="animation-delay:350ms">a</span><span aria-hidden="true" style="animation-delay:420ms">n</span></h1>
         <p class="lead">Your trusted partner in plumbing &amp; construction supplies. Toilets, basins, taps, showers, kitchen sinks and more.</p>
