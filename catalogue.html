@@ -763,6 +763,7 @@
     </div>
   </div>
 
+  <script src="toilets.js"></script>
   <script>
     const CATALOGUE_DATA = [
       // Bathroom Accessories
@@ -1075,6 +1076,9 @@
       { code: "FH60", name: "Hot & Cold Flexible Hose", cat: "Drainers & Hoses", finish: "", size: "60cm", img: "img/3e590f28a3.jpg" }
     ];
 
+    // Toilets & sanitary ware live in toilets.js (shared with the home page)
+    if (window.TOILETS) CATALOGUE_DATA.unshift(...window.TOILETS);
+
     let currentCategory = "All";
     let searchQuery = "";
     let cart = {};
@@ -1269,6 +1273,25 @@
     // Initialize
     initCategories();
     renderProducts();
+
+    // Open a category or a search directly from a link,
+    // e.g. catalogue.html?cat=Bath%20Mixers  or  catalogue.html?q=shower
+    (function () {
+      let wanted = '', q = '';
+      try {
+        const params = new URLSearchParams(location.search);
+        wanted = params.get('cat') || '';
+        q = (params.get('q') || '').trim();
+      } catch (e) {}
+      if (wanted) {
+        const btn = Array.from(document.querySelectorAll('.cat-btn')).find(b => b.textContent.trim() === wanted);
+        if (btn) btn.click();
+      }
+      if (q) {
+        document.getElementById('searchInput').value = q;
+        handleSearch();
+      }
+    })();
   </script>
 </body>
 </html>
