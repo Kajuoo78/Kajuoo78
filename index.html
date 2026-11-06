@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
     <title>Ottoman Water Solutions | Plumbing & Construction</title>
     <meta name="description" content="Toilets, basins, taps, mixers, showers, kitchen sinks, vanity cabinets and plumbing supplies in Nairobi. Shop by category and order on WhatsApp. Delivery countrywide.">
-    <meta name="theme-color" content="#011612">
+    <meta name="theme-color" content="#14213D">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -308,6 +308,88 @@
         .facts b{display:block;color:#fff;margin-bottom:3px;font-size:.92rem}
         @media(max-width:820px){.about{grid-template-columns:1fr;padding:80px 20px}.about-left{position:static}.dots{flex-direction:row;flex-wrap:wrap;gap:4px 18px}.dot.on i{width:30px}.facts{grid-template-columns:1fr}}
         @media(prefers-reduced-motion:reduce){.hero h1 span{animation:none;clip-path:none;transform:none}.panel.swap>*{animation:none}}
+
+        /* ===== PALETTE: navy 60% / cream 30% / coral 10% ===== */
+        :root{--navy:#14213D;--navy-hi:#1d2f55;--navy-lo:#0e182c;--cream:#F4EDE0;--coral:#FF6B5B;
+            --aqua:var(--coral);--jade:var(--coral);--dark:var(--navy);--deep:var(--navy-hi);--glass:rgba(244,237,224,.07);--line:rgba(244,237,224,.16)}
+        body,html{background:var(--navy);color:var(--cream)}
+        .topbar .logo,.burger{background:rgba(20,33,61,.55);border-color:rgba(244,237,224,.22)}
+        .burger:hover{background:rgba(255,107,91,.28)}
+        .burger span{background:var(--cream)}
+        .logo{color:var(--cream)}
+        .progress{background:var(--coral)}
+        .glow{background:radial-gradient(circle,rgba(255,107,91,.12),transparent 65%)}
+        .hero{background:linear-gradient(rgba(20,33,61,.70),rgba(20,33,61,.95)),url("showroom.jpg");background-size:cover;background-position:center}
+        .hero-logo{box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 0 1px rgba(244,237,224,.2)}
+        .hero .eyebrow{background:rgba(255,107,91,.12);border-color:rgba(255,107,91,.5)}
+        .hero h1{color:var(--cream);text-shadow:none}
+        .hero p.lead{color:rgba(244,237,224,.9)}
+        .search-form{background:var(--cream)}
+        .search-form input{color:var(--navy)}
+        .search-form button,.submit-btn{background:var(--coral);color:var(--navy)}
+        .search-hint{color:rgba(244,237,224,.65)}
+        .btn-primary{background:var(--coral);color:var(--navy);box-shadow:0 8px 22px rgba(255,107,91,.32)}
+        .btn-ghost{border-color:rgba(244,237,224,.7);color:var(--cream)}
+        .btn-ghost:hover{background:rgba(244,237,224,.12)}
+        .trust{background:var(--navy-hi)}
+        .trust-ico{background:rgba(255,107,91,.14)}
+        .trust-item span{color:rgba(244,237,224,.68)}
+        .ticker{background:var(--navy-lo)}
+        .section-title{color:var(--cream)}
+        .section-sub{color:rgba(244,237,224,.75)}
+        .stat b{color:var(--cream)}
+        .stat span{color:rgba(244,237,224,.75);opacity:1}
+        .toilets-wrap{background:linear-gradient(180deg,var(--navy),var(--navy-hi) 18%,var(--navy-hi) 82%,var(--navy))}
+        .tab{color:var(--cream)}
+        .tab.on{background:var(--coral);border-color:var(--coral);color:var(--navy)}
+        .pcard .note,.toilets-foot p{color:rgba(244,237,224,.7)}
+        .chip{color:var(--cream)}
+        .about .display{color:var(--cream)}
+        .about-intro{color:rgba(244,237,224,.78)}
+        .dot{color:rgba(244,237,224,.6)}
+        .dot i{background:rgba(255,107,91,.35)}
+        .panel{background:linear-gradient(160deg,rgba(255,107,91,.09),rgba(244,237,224,.03))}
+        .panel .big{color:rgba(255,107,91,.07)}
+        .panel p{color:rgba(244,237,224,.88)}
+        .panel li{background:rgba(255,107,91,.08);color:var(--cream);border-color:rgba(255,107,91,.4)}
+        .facts li{color:rgba(244,237,224,.68)}
+        input,textarea{border-color:rgba(244,237,224,.28);color:var(--cream)}
+        input::placeholder,textarea::placeholder{color:rgba(244,237,224,.5)}
+        .search-form input::placeholder{color:rgba(20,33,61,.5)}
+        footer{background:var(--navy-lo);color:rgba(244,237,224,.62)}
+        .tile .badge,.bs-badge{background:var(--coral);color:var(--navy)}
+        .tile.feature{background:linear-gradient(135deg,rgba(255,107,91,.22),rgba(244,237,224,.06))}
+        .tile.ask .ph{background:linear-gradient(135deg,var(--navy-hi),var(--navy-lo))}
+        .bs-price{color:var(--cream)}
+
+        /* cream bands: full-bleed 30% */
+        .cream{--glass:#fff;--line:rgba(20,33,61,.12);background:var(--cream);color:var(--navy);box-shadow:0 0 0 100vmax var(--cream);clip-path:inset(0 -100vmax)}
+        .cream .section-title{color:var(--navy)}
+        .cream .section-sub{color:rgba(20,33,61,.72)}
+        .cream .bs-card,.cream .tile{background:#fff;color:var(--navy);border:1px solid rgba(20,33,61,.1);box-shadow:0 8px 24px rgba(20,33,61,.07)}
+        .cream .bs-card:hover,.cream .tile:hover{border-color:var(--coral);box-shadow:0 16px 36px rgba(255,107,91,.22)}
+        .cream .tile.feature{background:linear-gradient(135deg,rgba(255,107,91,.18),#fff)}
+        .cream .bs-body .code{color:rgba(20,33,61,.6);opacity:1}
+        .cream .bs-price{color:var(--navy)}
+        .cream .group-head h3{color:var(--navy)}
+        .cream .group-head::after{background:linear-gradient(90deg,rgba(20,33,61,.22),transparent)}
+        .cream .tile.ask .ph{color:var(--coral)}
+        .cream .tile.ask small{color:rgba(20,33,61,.62)!important}
+        .cream .btn-primary{color:var(--navy)}
+
+        /* side panel menu: laptop = half-screen panel, smaller type */
+        @media(min-width:900px){
+            .menu{inset:0 0 0 auto;width:50vw;min-width:480px;padding:100px clamp(40px,4vw,72px) 48px;background:rgba(20,33,61,.84);border-left:1px solid rgba(244,237,224,.18);box-shadow:-30px 0 80px rgba(0,0,0,.4);transform:translateX(40px);transition:opacity .4s,visibility .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+            .menu-open .menu{transform:none}
+            .menu li a{font-size:clamp(1.5rem,2.3vw,2.2rem);padding:4px 0}
+            .menu-foot{font-size:.85rem}
+            body.menu-open::after{content:"";position:fixed;inset:0;z-index:1040;background:rgba(14,24,44,.45);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+        }
+        .menu{background:rgba(20,33,61,.8)}
+        .menu li a{color:var(--cream)}
+        .menu-foot{color:rgba(244,237,224,.75)}
+        .menu-foot a{color:var(--cream)}
+        .burger:focus-visible,.logo:focus-visible,.menu a:focus-visible{outline-color:var(--coral)}
     </style>
 </head>
 <body>
@@ -363,7 +445,7 @@
 
     <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
 
-    <section id="bestsellers" class="block">
+    <section id="bestsellers" class="block cream">
         <h2 class="section-title reveal">Best Sellers: Taps &amp; Showers</h2>
         <p class="section-sub reveal">What our customers buy the most. Prices in KES. Tap Order and the message opens in WhatsApp.</p>
         <div class="bs-wrap reveal">
@@ -380,7 +462,7 @@
         </div>
     </section>
 
-    <section id="products" class="block">
+    <section id="products" class="block cream">
         <h2 class="section-title reveal">Shop by Category</h2>
         <p class="section-sub reveal">Pick what you are looking for. Every category opens straight to the products, with photos, sizes and a cart.</p>
 
@@ -616,6 +698,7 @@
         burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
         document.getElementById('menu').addEventListener('click', e => { if (e.target.closest('a') || e.target.id === 'menu') setMenu(false); });
         document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+        document.addEventListener('click', e => { if (document.body.classList.contains('menu-open') && !e.target.closest('#menu, #burger')) setMenu(false); });
 
         // ---------- About: three-dot panel ----------
         const ABOUT = [
