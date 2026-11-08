@@ -904,6 +904,7 @@
   </div>
 
   <script src="products.js"></script>
+  <script src="viewer.js"></script>
   <script src="toilets.js"></script>
   <script>
     const CATALOGUE_DATA = (window.PRODUCTS || []).slice();
@@ -953,6 +954,9 @@
       renderProducts();
     }
 
+    window.viewerAdd = code => updateCardQty(code, 1);
+    window.viewerQty = code => cart[code] || 0;
+
     function renderProducts() {
       const grid = document.getElementById("productGrid");
       const resultsCount = document.getElementById("resultsCount");
@@ -973,6 +977,7 @@
       else if (sortMode === "high") filtered.sort((x, y) => (y.price || -1) - (x.price || -1));
 
       resultsCount.textContent = `Showing ${filtered.length} products`;
+      window.__viewList = filtered.map(i => i.code);
 
       if (filtered.length === 0) {
         grid.innerHTML = `
@@ -987,7 +992,7 @@
         const qty = cart[item.code] || 0;
         return `
           <div class="card">
-            <div class="card-photo" ${item.img ? `onclick="openPhoto('${item.img}')"` : ''}>
+            <div class="card-photo" style="cursor:pointer" onclick="openProduct('${item.code}', window.__viewList)">
               ${item.best ? '<span class="best-badge">⭐ Best seller</span>' : ''}
               ${imgOrPh(item.img, item.code)}
             </div>
@@ -997,7 +1002,7 @@
             </div>
             <div class="card-body">
               <div>
-                <h3 class="item-title">${item.name}</h3>
+                <h3 class="item-title" style="cursor:pointer" onclick="openProduct('${item.code}', window.__viewList)">${item.name}</h3>
                 ${extraSize(item) ? `<span class="size-pill">${extraSize(item)}</span>` : ''}
                 <p class="item-category">${item.cat}</p>
                 ${priceHtml(item)}

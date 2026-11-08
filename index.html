@@ -603,6 +603,7 @@
     <div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""></div>
 
     <script src="products.js"></script>
+    <script src="viewer.js"></script>
     <script src="toilets.js"></script>
     <script>
         const WA = "254112406467";
@@ -637,7 +638,7 @@
             const list = tab === 'All' ? TOILETS : TOILETS.filter(x => x.type === tab);
             document.getElementById('tGrid').innerHTML = list.map((p, i) => `
                 <article class="pcard" style="animation-delay:${Math.min(i, 8) * 40}ms">
-                    <div class="ph" data-zoom="${esc(p.img)}"><img src="${esc(p.img)}" alt="${esc(p.code + ' ' + p.name)}" loading="lazy"></div>
+                    <div class="ph" data-open="${esc(p.code)}"><img src="${esc(p.img)}" alt="${esc(p.code + ' ' + p.name)}" loading="lazy"></div>
                     <div class="body">
                         <div class="code">${esc(p.code)}</div>
                         <h4>${esc(p.name)}</h4>
@@ -653,9 +654,8 @@
             tab = b.dataset.tab; renderTabs(); renderToilets();
         });
         document.getElementById('tGrid').addEventListener('click', e => {
-            const z = e.target.closest('[data-zoom]'); if (!z) return;
-            document.getElementById('lightboxImg').src = z.dataset.zoom;
-            document.getElementById('lightbox').classList.add('on');
+            const z = e.target.closest('[data-open]'); if (!z) return;
+            openProduct(z.dataset.open, [...document.querySelectorAll('#tGrid [data-open]')].map(n => n.dataset.open));
         });
         document.getElementById('lightbox').addEventListener('click', () => document.getElementById('lightbox').classList.remove('on'));
         document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('on'); });
@@ -668,7 +668,7 @@
         document.getElementById('bsRow').innerHTML = feat.map(p => `
             <article class="bs-card">
                 <span class="bs-badge">&#11088; Best seller</span>
-                <div class="ph"><img src="${esc(p.img)}" alt="${esc(p.code + ' ' + p.name)}" loading="lazy"></div>
+                <div class="ph" style="cursor:pointer" onclick="openProduct('${esc(p.code)}', window.FEATURED)"><img src="${esc(p.img)}" alt="${esc(p.code + ' ' + p.name)}" loading="lazy"></div>
                 <div class="bs-body">
                     <div class="code">${esc(p.code)}${p.finish ? ' &middot; ' + esc(p.finish) : ''}</div>
                     <h4>${esc(p.name)}</h4>
