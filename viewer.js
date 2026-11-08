@@ -15,10 +15,6 @@ background:radial-gradient(circle at 72% 28%,var(--v2),transparent 62%),var(--v1
 .pv-stage{position:relative;z-index:2;width:min(84vw,440px);aspect-ratio:1;background:#fff;border-radius:34px;box-shadow:0 40px 80px rgba(0,0,0,.35),0 8px 20px rgba(0,0,0,.2);display:grid;place-items:center;transition:transform .15s ease-out}\
 .pv-stage img{position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;animation:pvimg .6s .1s cubic-bezier(.2,.8,.2,1) both}\
 @keyframes pvimg{from{opacity:0;transform:translateY(34px) scale(.9)}to{opacity:1;transform:none}}\
-.pv-stagebox.cutmode{padding-top:0}\
-.pv-stagebox.cutmode .pv-word{top:20%}\
-.pv-stage.cut{background:transparent;box-shadow:none;border-radius:0;display:flex;align-items:center;justify-content:center}\
-.pv-stage.cut img{position:relative;inset:auto;width:auto;height:auto;max-width:100%;max-height:100%;filter:drop-shadow(0 34px 28px rgba(0,0,0,.38))}\
 .pv-noimg{color:#7a6a60;font-size:.9rem}\
 .pv-info{display:flex;flex-direction:column;gap:12px;text-align:center;align-items:center}\
 .pv-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}\
@@ -42,7 +38,7 @@ background:radial-gradient(circle at 72% 28%,var(--v2),transparent 62%),var(--v1
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   var THEMES = [
-    ['black', '#c9c2b6', '#efe9de', '#1b1a1a'], ['gold', '#a87a2c', '#e4c474', '#2a1d05'],
+    ['black', '#17181c', '#3a3d46', '#ffffff'], ['gold', '#a87a2c', '#e4c474', '#2a1d05'],
     ['nickel', '#6f7378', '#b4b8bc', '#ffffff'], ['chrome', '#8ea2b4', '#dbe5ee', '#14212d'],
     ['silver', '#8ea2b4', '#dbe5ee', '#14212d'], ['grey', '#555c66', '#8a929c', '#ffffff'],
     ['gray', '#555c66', '#8a929c', '#ffffff'], ['white', '#d9e2e7', '#f6f9fa', '#1a2630'],
@@ -56,7 +52,6 @@ background:radial-gradient(circle at 72% 28%,var(--v2),transparent 62%),var(--v1
   }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function all() { return (window.PRODUCTS || []).concat(window.TOILETS || []); }
-  function cutOf(p) { return p.replace(/^.*\/([^\/]+)\.\w+$/, 'img/cut/$1.webp'); }
   function find(code) { var a = all(); for (var i = 0; i < a.length; i++) if (a[i].code === code) return a[i]; }
 
   var el = document.createElement('div');
@@ -76,8 +71,8 @@ background:radial-gradient(circle at 72% 28%,var(--v2),transparent 62%),var(--v1
     var canAdd = typeof window.viewerAdd === 'function';
     var q = canAdd && window.viewerQty ? window.viewerQty(it.code) : 0;
     document.getElementById('pvWrap').innerHTML =
-      '<div class="pv-stagebox' + (it.img ? ' cutmode' : '') + '" id="pvBox"><div class="pv-word" id="pvWord">' + esc(it.code) + '</div><div class="pv-stage' + (it.img ? ' cut' : '') + '" id="pvStage">' +
-      (it.img ? '<img id="pvImg" src="' + esc(cutOf(it.img)) + '" alt="' + esc(it.code + ' ' + it.name) + '">' : '<div class="pv-noimg">Photo coming soon</div>') + '</div></div>' +
+      '<div class="pv-stagebox" id="pvBox"><div class="pv-word" id="pvWord">' + esc(it.code) + '</div><div class="pv-stage" id="pvStage">' +
+      (it.img ? '<img src="' + esc(it.img) + '" alt="' + esc(it.code + ' ' + it.name) + '">' : '<div class="pv-noimg">Photo coming soon</div>') + '</div></div>' +
       '<div class="pv-info"><div class="pv-meta">' + fin + size + '</div><h2 class="pv-name">' + esc(it.name) + '</h2><p class="pv-cat">' + esc(it.cat) + '</p>' + price +
       '<div class="pv-btns">' + (canAdd ? '<button class="pv-btn main" id="pvAdd">' + (q ? '&#10003; In cart (' + q + ') &middot; add one more' : '+ Add to cart') + '</button>' : '') +
       '<a class="pv-btn wa" target="_blank" rel="noopener" href="https://wa.me/254112406467?text=' + encodeURIComponent(msg) + '">Order on WhatsApp</a></div></div>';
@@ -86,11 +81,6 @@ background:radial-gradient(circle at 72% 28%,var(--v2),transparent 62%),var(--v1
       w.style.fontSize = ''; var fs = parseFloat(getComputedStyle(w).fontSize), max = b.clientWidth * 1.04;
       if (w.scrollWidth > max) w.style.fontSize = Math.max(36, fs * max / w.scrollWidth) + 'px';
     })();
-    var im = document.getElementById('pvImg');
-    if (im) {
-      im.onerror = function () { im.onerror = null; im.src = it.img; var b = document.getElementById('pvBox'); b.classList.remove('cutmode'); document.getElementById('pvStage').classList.remove('cut'); };
-      im.onload = function () { if (document.getElementById('pvStage').classList.contains('cut')) im.style.maxWidth = 'min(100%,' + Math.round(im.naturalWidth * 2.4) + 'px)'; };
-    }
     document.getElementById('pvCount').textContent = list.length > 1 ? (idx + 1) + ' / ' + list.length : '';
     el.querySelector('.prev').style.display = el.querySelector('.next').style.display = list.length > 1 ? '' : 'none';
     var add = document.getElementById('pvAdd');
