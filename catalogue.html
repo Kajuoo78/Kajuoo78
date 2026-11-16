@@ -813,6 +813,58 @@
     @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
       .card, header, .drawer { background: rgba(30, 24, 80, .92); }
     }
+
+    /* ===== Light theme: Buttermilk page, Old Burgundy header and text, Pastel Blue accents (matches the home page) ===== */
+    :root { --bg-dark:#FBF3D6; --bg-card:#ffffff; --bg-card-hover:#ffffff; --accent:#43302E; --accent-glow:rgba(193,219,232,.5);
+      --text-main:#43302E; --text-muted:#6f5b54; --border:rgba(67,48,46,.16); --border-accent:rgba(67,48,46,.35); }
+    body { background-color:#FBF3D6; color:#43302E;
+      background-image:
+        radial-gradient(60% 38% at 8% 0%, rgba(193,219,232,.65), transparent 72%),
+        radial-gradient(45% 35% at 100% 12%, rgba(255,241,181,.95), transparent 72%),
+        linear-gradient(180deg,#FFF8E1 0%,#FBF3D6 100%);
+      background-attachment:fixed; }
+    body::before, body::after { display:none; }
+    header { background:rgba(67,48,46,.97); border-bottom:0; box-shadow:0 6px 24px rgba(67,48,46,.25); backdrop-filter:none; -webkit-backdrop-filter:none; }
+    .brand-title, .home-link, .boq-btn { color:#FFF1B5; }
+    .brand-title span { color:#C1DBE8; }
+    .boq-btn { background:rgba(255,241,181,.1); border:1px solid rgba(255,241,181,.45); box-shadow:none; }
+    .boq-btn:hover { background:#C1DBE8; color:#43302E; box-shadow:none; }
+    .badge-count { background:#C1DBE8; color:#43302E; }
+    .hero-badge { background:rgba(193,219,232,.55); border:1px solid rgba(67,48,46,.2); color:#43302E; }
+    .hero h1 { color:#43302E; }
+    .hero h1 span { background:none; -webkit-text-fill-color:#43302E; color:#43302E; text-decoration:underline; text-decoration-color:#C1DBE8; text-decoration-thickness:6px; text-underline-offset:4px; }
+    .hero p { color:#6f5b54; }
+    .search-input, .sort-row select, .form-input { background:#fff; color:#43302E; border:1px solid rgba(67,48,46,.2); box-shadow:0 2px 8px rgba(67,48,46,.06); }
+    .search-input::placeholder, .form-input::placeholder { color:#9a8a80; }
+    .search-input:focus, .form-input:focus { border-color:#43302E; box-shadow:0 0 0 3px rgba(193,219,232,.8); }
+    .sort-row select option { background:#fff; color:#43302E; }
+    .cat-btn { background:#fff; color:#43302E; border:1px solid rgba(67,48,46,.18); box-shadow:none; }
+    .cat-btn:hover { background:#C1DBE8; color:#43302E; }
+    .cat-btn.active { background:#43302E; color:#FFF1B5; border-color:#43302E; box-shadow:0 6px 16px rgba(67,48,46,.25); }
+    .status-bar, .status-bar div { color:#6f5b54; }
+    .card { background:#fff; border:1px solid rgba(67,48,46,.1); border-radius:22px; box-shadow:0 8px 24px rgba(67,48,46,.1); backdrop-filter:none; -webkit-backdrop-filter:none; }
+    .card::before { display:none; }
+    .card:hover { transform:translateY(-4px); border-color:#C1DBE8; box-shadow:0 18px 40px rgba(67,48,46,.16), 0 0 0 3px rgba(193,219,232,.7); }
+    .card-photo { background:#fff; box-shadow:inset 0 0 0 1px rgba(67,48,46,.07); }
+    .item-title { color:#43302E; }
+    .item-code { color:#43302E; background:rgba(193,219,232,.55); border:0; }
+    .finish-pill { background:#F3ECDD; color:#6f5b54; border:1px solid rgba(67,48,46,.08); }
+    .size-pill { background:rgba(193,219,232,.4); color:#43302E; border:0; }
+    .item-category { color:#8a7a70; }
+    .price { color:#43302E; text-shadow:none; }
+    .price.ask { color:#8a7a70; }
+    .best-badge { background:linear-gradient(135deg,#FFF1B5,#ffe27a); color:#43302E; box-shadow:0 3px 10px rgba(67,48,46,.2); }
+    .card-footer { border-top:1px solid rgba(67,48,46,.1); }
+    .add-cart-btn { background:#43302E; color:#FFF1B5; border:1px solid #43302E; }
+    .add-cart-btn:hover { background:#C1DBE8; color:#43302E; box-shadow:none; }
+    .qty-control { background:#F3ECDD; border:1px solid rgba(67,48,46,.15); color:#43302E; }
+    .drawer { background:#FFF8E6; border-left:1px solid rgba(67,48,46,.15); box-shadow:-10px 0 40px rgba(67,48,46,.25); backdrop-filter:none; -webkit-backdrop-filter:none; color:#43302E; }
+    .drawer-item, .drawer-form { background:#fff; border:1px solid rgba(67,48,46,.12); backdrop-filter:none; -webkit-backdrop-filter:none; }
+    .drawer-footer { background:#fff; border-top:1px solid rgba(67,48,46,.12); }
+    .drawer-thumb { background:#fff; border:1px solid rgba(67,48,46,.1); }
+    .cart-total { border-top:1px solid rgba(67,48,46,.15); }
+    .lightbox { background:rgba(30,20,18,.78); }
+    .drawer-overlay { background:rgba(30,20,18,.45); }
   </style>
 </head>
 <body>
