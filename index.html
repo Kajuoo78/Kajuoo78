@@ -392,6 +392,8 @@
         .menu-foot a{color:var(--cream)}
         .burger:focus-visible,.logo:focus-visible,.menu a:focus-visible{outline-color:var(--coral)}
     </style>
+    <script>try{if(!sessionStorage.getItem('ottoIntro')||/[?&]intro/.test(location.search))document.documentElement.classList.add('intro-on')}catch(e){}</script>
+    <link rel="stylesheet" href="intro.css">
 </head>
 <body>
     <div class="progress" id="progress"></div><div class="glow" id="glow"></div>
@@ -604,6 +606,7 @@
 
     <script src="products.js"></script>
     <script src="viewer.js"></script>
+    <script src="intro.js"></script>
     <script src="toilets.js"></script>
     <script>
         const WA = "254112406467";
