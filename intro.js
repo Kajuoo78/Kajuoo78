@@ -1,5 +1,5 @@
 /* Ottoman intro: one drop -> inside the pipes -> taps -> finished bathroom -> door closes -> home page */
-(function () {
+window.ottoIntro2D = function () {
   var root = document.documentElement;
   if (!root.classList.contains('intro-on')) return;
 
@@ -166,4 +166,6 @@
   el.querySelector('#puddle').addEventListener('click', dive);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') finish(); });
   at(16000, dive); /* nobody tapped: carry on by itself */
-})();
+};
+/* safety net: if the 3D intro never started, play this 2D one */
+window.addEventListener('load', function () { if (!document.getElementById('intro') && document.documentElement.classList.contains('intro-on')) window.ottoIntro2D(); });
